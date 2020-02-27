@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width = device-width, initial-scale = 1"/>
+    <title>Bootstrap Tutorial</title>
+    <!-- Put Bootstrap FIRST, then personal style sheets after -->
+    <!-- Can link to website -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+    <!-- Or link to local files -
+    <link href="css/bootstrap.css" type="text/css" rel="stylesheet"/> -->
+    <link href="styleBootstrap.css" type="text/css" rel="stylesheet"/>
+
+    <!-- FREE Google fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'/>
+</head>
+<body>
+
+<!-- CAROUSEL - All images added in css file -->
+<!-- Surround everything with a div with the class carousel slide -->
+<div id="theCarousel" class="carousel slide" data-ride="carousel">
+
+    <!-- Define no. of slides in carousel -->
+    <ol class="carousel-indicators">
+        <!-- Only 1 slider active at a time -->
+        <li data-target="#theCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#theCarousel" data-slide-to="1" ></li>
+        <li data-target="#theCarousel" data-slide-to="2" ></li>
+    </ol>
+    <!-- Define the text to place over each image -->
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class="slide1"></div>
+            <div class="carousel-caption">
+                <h1>Slider 1</h1>
+                <p>Thousands of backgrounds for free</p>
+                <p><a href="#" class="btn btn-primary btn-sm">Get them Now</a></p>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="slide2"></div>
+            <div class="carousel-caption">
+                <h1>Slider 2</h1>
+                <p>Thousands of colours</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="slide3"></div>
+            <div class="carousel-caption">
+                <h1>Slider 2</h1>
+                <p>Thousands of illustrations</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Define actions when arrows are clicked -->
+    <a class="left carousel-control" href="#theCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#theCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+
+</div>
+
+<!--container OR container-fluid (container has padding)-->
+<div class="container">
+
+    <!--page header adds space around text + enlarges text + adds underline-->
+    <div class="page-header">
+        <h1>Bootstrap Tutorial</h1>
+    </div>
+
+    <!-- Use row to initialise 12 column system -->
+    <div class="row">
+        <!-- ALL THESE COLUMNS ARE THE SAME SIZE -->
+        <!-- Use different no. of columns with large/md/s/xs for different screen sizes -->
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <h4>Column 1</h4>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <h4>Column 2</h4>
+            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+        <!-- Paragraph jumps when in SMALL configuration - so clearfix sm -->
+        <div class="clearfix visible-sm"></div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <h4>Column 3</h4>
+            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <h4>Column 4</h4>
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+
+        <div class="clearfix visible-lg"></div>
+        <!-- ALL THESE COLUMNS ARE DIFFERENT SIZES -->
+        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
+            <!-- Click to show/hide content (collapse) -->
+            <h4><a href="#col1Content" data-toggle="collapse">Column1</a></h4>
+            <!-- Collapse (first loads collapsed), Collapse IN (loads uncollapsed) -->
+            <div id="col1Content" class="collapse in">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-8 col-xs-12">
+            <!-- Click to show/hide content (collapse) -->
+            <h4><a href="#col2Content" data-toggle="collapse">Column2</a></h4>
+            <!-- Collapse (first loads collapsed), Collapse IN (loads uncollapsed) -->
+            <div id="col2Content" class="collapse">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <!-- Click to show/hide content (collapse) -->
+            <h4><a href="#col3Content" data-toggle="collapse">Column3</a></h4>
+            <!-- Collapse (first loads collapsed), Collapse IN (loads uncollapsed) -->
+            <div id="col3Content" class="collapse">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- HIDE ELEMENTS BASED ON SCREEN SIZE -->
+    <!-- well adds a rounded border + background (hidden-sm = hidden in small) -->
+    <div class="well hidden-sm hidden-md hidden-lg">
+        <p>Screen &lt; 768px</p>
+    </div>
+    <div class="well hidden-md hidden-lg">
+        <p>Screen &gt; 768px and &lt; 992px</p>
+    </div>
+    <div class="well hidden-lg">
+        <p>Screen &gt; 992px and &lt; 1200px</p>
+    </div>
+    <div class="well">
+        <p>Screen &gt; 1200px</p>
+    </div>
+
+    <!-- TABLE MANIPULATION -->
+    <div class="row">
+        <div class="col-md-6"></div>
+        <!-- Table entered in to the RIGHT 6 columns, so in large mode it will only appear
+        on the right side of the screen, with black space on the left -->
+        <div class="col-md-6">
+            <!-- The table class adds nice spacing and the other classes add additional style -->
+            <!-- bordered = border, striped = adds striped, can be modified in css,
+            hover = highlights cells which are hovered over -->
+            <table class="table table-bordered table-striped table-hover">
+                <thead>
+                <tr>
+                    <td colspan="4">Best Baseball Players</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <!-- You can adjust the width of table columns as well -->
+                    <th class="col-md-2"></th>
+
+                    <!-- Use text alignment like text-center or text-right -->
+                    <th class="text-center">Average</th>
+                    <th class="text-center">RBIs</th>
+                    <th class="text-center">Homeruns</th>
+                </tr>
+                <tr>
+                    <td><a href="#">Hank Aaron*</a></td>
+                    <!-- Collapse (first loads collapsed), Collapse IN (loads uncollapsed) -->
+                        <td>.305</td>
+                        <td>2297</td>
+                        <td>755</td>
+                </tr>
+                <tr>
+                    <td><a href="#">Babe Ruth*</a></td>
+                    <td>.342</td>
+                    <td>2214</td>
+                    <td>714</td>
+                </tr>
+                <tr>
+                    <td><a href="#">Barry Bonds</a></td>
+                    <td>.298</td>
+                    <td>1996</td>
+                    <td>762</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+    <!-- Enlarges fonts, puts everything in grey box INSIDE container -->
+    <div class="jumbotron">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+        <p>
+            <!-- Different classes are different button styles/ colours -->
+            <a href="#" class="btn btn-default btn-lg" role="button">More Info</a>
+            <input type="button" value="Info" class="btn btn-info"/>
+            <button type="submit" class="btn btn-danger" role="button">Button</button>
+            <!-- btn-sm = small button (also have xs, lg) -->
+            <button type="submit" class = "btn-primary btn-sm">Primary</button>
+            <button type="submit" class = "btn btn-success btn-xs">Success</button>
+            <button type="submit" class = "btn btn-warning btn-lg">Warning</button>
+            <button type="submit" class = "btn btn-link btn-lg">Link</button>
+            <!-- Disabled buttons -->
+            <button type="button" class="btn btn-lg btn-primary" disabled="disabled">Primary DISABLED</button>
+            <a href="#" class="btn btn-default btn-lg disabled" role="button">Link DISABLED</a>
+
+            <!-- BUTTON GROUP - all buttons are connected, use for header bar -->
+            <div class="btn-group btn-group-lg" role="group">
+                <button type="button" class="btn btn-default">Small</button>
+                <button type="button" class="btn btn-default">Medium</button>
+                <button type="button" class="btn btn-default">Large</button>
+            </div>
+
+        </p>
+    </div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<!-- Link to bootstrap js -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<!-- Link js locally -
+<script src="js/bootstrap.min.js"></script> -->
+</body>
+</html>
