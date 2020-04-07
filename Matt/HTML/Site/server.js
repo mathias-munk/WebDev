@@ -50,7 +50,7 @@ async function start() {
 // Serve a request by delivering a file.
 async function handle(request, response) {
     let url = request.url;
-    if (url.endsWith("/")) url = url + "bootstrap.html";
+    if (url.endsWith("/")) url = url + "pageTemplate.html";
     let ok = await checkPath(url);
     if (! ok) return fail(response, NotFound, "URL not found (check case)");
     let type = findType(url);

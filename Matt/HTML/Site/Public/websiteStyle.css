@@ -1,0 +1,25 @@
+.jumbotron {
+    background-color: #2E86C1;
+    color: white;
+}
+
+body {
+    background: linear-gradient(-30deg, #369BDD, #2593DA);
+    margin: 0;
+    padding-bottom: 750px;
+}
+
+.page-header {
+    color: #2E86C1;
+    font: arial;
+    style: bold;
+}
+
+.img-thumbnail {
+    background-color: #ffffe4;
+    border: 1px solid #dee2e6;
+}
+
+h1 {
+    font-size: 50;
+}
