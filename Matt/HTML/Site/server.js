@@ -34,7 +34,7 @@ start();
 async function start() {
     try {
         await fs.access(root);
-        await fs.access(root + "/bootstrap.html");
+        await fs.access(root + "/pageTemplate.html");
         types = defineTypes();
         paths = new Set();
         paths.add("/");

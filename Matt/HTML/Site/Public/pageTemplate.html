@@ -18,24 +18,17 @@
 
 
 <nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                <a class="pull-left" href="#"><img src="Images/aa-logo.png"
-                                                   class="img-thumbnail"/></a>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-                <div class="page-header">
-                    <h1>Algorithm Animation</h1>
-                </div>
-            </div>
+    <div class="container header">
+        <div class="page-header">
+            <h1 class="title"><img src="Images/aa-logo.png" class="img-thumbnail logo"/>
+                Algorithm Animation</h1>
         </div>
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <!-- Button that toggles the navbar on and off on small screens -->
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                     data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <!-- Hides information from screen readers - DISABILITY  -->
+                <!-- Hides information from screen readers -->
                 <span class="sr-only"></span>
 
                 <!-- Draws 3 bars in navbar button when in small mode -->
@@ -44,20 +37,50 @@
                 <span class="icon-bar"></span>
             </button>
 
-
-
-
-
-
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+            <ul class="nav nav-pills navbar-nav">
+                <li class="active"><a href="#">Home<span class="sr-only">(current)</span></a></li>
+                <!-- LEARN dropdown menu -->
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                        aria-haspopup="true" aria-expanded="false">Learn<span class="caret"></span></a>
+                    <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                        <li class="dropdown-submenu">
+                            <a tabindex="-1" href="#">BubbleSort</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Overview</a></li>
+                                <li><a href="#">How it Works</a></li>
+                                <li><a href="#">Animation</a></li>
+                                <li><a href="#">Code</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a tabindex="-1" href="#">MergeSort</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Overview</a></li>
+                                <li><a href="#">How it Works</a></li>
+                                <li><a href="#">Animation</a></li>
+                                <li><a href="#">Code</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a tabindex="-1" href="#">QuickSort</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Overview</a></li>
+                                <li><a href="#">How it Works</a></li>
+                                <li><a href="#">Animation</a></li>
+                                <li><a href="#">Code</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <!-- Test dropdown menu -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Test <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">BubbleSort</a></li>
                         <li><a href="#">MergeSort</a></li>
@@ -66,19 +89,23 @@
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                       aria-haspopup="true" aria-expanded="false">Test<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">BubbleSort</a></li>
-                        <li><a href="#">MergeSort</a></li>
-                        <li><a href="#">QuickSort</a></li>
+                       aria-haspopup="true" aria-expanded="false">Login</a>
+                    <ul class="dropdown-menu login-menu">
+                        <li class="input-group input group-lg">
+                            <input type="text" class="form-control" placeholder="Username"/>
+                        </li>
+                        <li class="input-group input group-lg">
+                            <input type="text" class="form-control" placeholder="Password"/>
+                        </li>
                     </ul>
+
                 </li>
-                <li><a href="#">Login</a></li>
                 <li><a href="#">Sign Up</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+    </div>
 </nav>
+
 
 <!--
 <div class="container-fluid">
