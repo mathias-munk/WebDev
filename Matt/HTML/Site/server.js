@@ -19,11 +19,12 @@ app.use(express.static("public", options));
 app.listen(8080, "localhost");
 console.log("Visit http://localhost:8080/");
 
+
 // Make the URL lower case.
 function lower(req, res, next) {
     req.url = req.url.toLowerCase();
     next();
-}
+
 
 // Forbid access to the URLs in the banned list.
 function ban(req, res, next) {
