@@ -34,7 +34,7 @@ start();
 async function start() {
     try {
         await fs.access(root);
-        await fs.access(root + "/pageTemplate.html");
+        await fs.access(root + "/homepage.html");
         types = defineTypes();
         paths = new Set();
         paths.add("/");
@@ -50,7 +50,7 @@ async function start() {
 // Serve a request by delivering a file.
 async function handle(request, response) {
     let url = request.url;
-    if (url.endsWith("/")) url = url + "pageTemplate.html";
+    if (url.endsWith("/")) url = url + "homepage.html";
     let ok = await checkPath(url);
     if (! ok) return fail(response, NotFound, "URL not found (check case)");
     let type = findType(url);

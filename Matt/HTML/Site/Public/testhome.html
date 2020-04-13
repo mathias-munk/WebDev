@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width = device-width, initial-scale = 1"/>
+    <title>Algorithm Animation</title>
+    <!-- Put Bootstrap FIRST, then personal style sheets after -->
+    <!-- Link to Bootstrap website (can either store locally or link website) -->
+    <!-- Link to jquery and bootstrap.js AT BOTTOM OF BODY -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+    <!-- Personal styling -->
+    <link href="websitestyle.css" type="text/css" rel="stylesheet"/>
+    <!-- Personal JS file -->
+    <script src="template.js" async="async"></script>
+    <!-- FREE Google fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'/>
+    <!-- JQUERY link -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" async="async"></script>
+    <!-- BOOTSTRAP JS link -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" async="async"></script>
+</head>
+<body id="grad">
+
+<nav class="navbar navbar-default" id="Header">
+    <div class="container header">
+        <div class="page-header">
+            <h1 class="title"><img src="Images/aa-logo.png" class="img-thumbnail logo"/>
+                Algorithm Animation</h1>
+        </div>
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <!-- Button that toggles the navbar on and off on small screens -->
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <!-- Hides information from screen readers -->
+                <span class="sr-only"></span>
+
+                <!-- Draws 3 bars in navbar button when in small mode -->
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav nav-pills navbar-nav">
+                <li><a href="homepage.html">Home</a></li>
+                <!-- LEARN dropdown menu -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Learn <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                        <li><a href="learnhome.html"><i>Learn Homepage</i></a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-submenu">
+                            <a tabindex="-1" href="learnbubble.html">BubbleSort</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="learnbubble.html">Overview</a></li>
+                                <li><a href="learnbubble.html#HowItWorks">How it Works</a></li>
+                                <li><a href="learnbubble.html#Animation">Animation</a></li>
+                                <li><a href="learnbubble.html#Code">Code</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a tabindex="-1" href="learnmerge.html">MergeSort</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="learnmerge.html">Overview</a></li>
+                                <li><a href="learnmerge.html#HowItWorks">How it Works</a></li>
+                                <li><a href="learnmerge.html#Animation">Animation</a></li>
+                                <li><a href="learnmerge.html#Code">Code</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a tabindex="-1" href="learnquick.html">QuickSort</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="learnquick.html">Overview</a></li>
+                                <li><a href="learnquick.html#HowItWorks">How it Works</a></li>
+                                <li><a href="learnquick.html#Animation">Animation</a></li>
+                                <li><a href="learnquick.html#Code">Code</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <!-- Test dropdown menu -->
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Test <span class="sr-only">
+                        (current)</span><span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="testhome.html"><i>Test Homepage</i></a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">BubbleSort</a></li>
+                        <li><a href="#">MergeSort</a></li>
+                        <li><a href="#">QuickSort</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Login</a>
+                    <ul class="dropdown-menu login-menu">
+                        <li class="input-group login-input">
+                            <input type="text" class="form-control" id="login-username"
+                                   placeholder="Username"/>
+                        </li>
+                        <li class="input-group login-input">
+                            <input type="password" class="form-control" id="login-password"
+                                   data-toggle="password" placeholder="Password"/>
+                        </li>
+                        <li>
+                            <button type="submit" class = "btn-primary login-button"
+                                    id="login">Log In</button>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Sign Up</a>
+                    <ul class="dropdown-menu login-menu">
+                        <li class="input-group login-input">
+                            <input type="text" class="form-control" id="signUp-firstname"
+                                   placeholder="First Name"/>
+                        </li>
+                        <li class="input-group login-input">
+                            <input type="text" class="form-control" id="signUp-lastname"
+                                   placeholder="Last Name"/>
+                        </li>
+                        <li class="input-group login-input">
+                            <input type="email" class="form-control" id="signUp-email"
+                                   placeholder="Email"/>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li class="input-group">
+                            <input type="text" class="form-control" id="signUp-username"
+                                   placeholder="Choose Username"/>
+                        </li>
+                        <li class="input-group login-input">
+                            <input type="password" class="form-control" data-toggle="password"
+                                   id="signUp-password" placeholder="Choose Password"/>
+                        </li>
+                        <li>
+                            <button type="submit" class = "btn-primary login-button"
+                                    id="signUp">Create Account</button>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<footer id="footer footer-placeholder">
+    <p id="footer-text">© 2020 Copyright: Matthew Meades &amp; Mathias Munk</p>
+</footer>
+
+</body>
+</html>
