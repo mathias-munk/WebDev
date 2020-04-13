@@ -30,7 +30,7 @@ https.createServer({
 
   app.set('view engine', 'ejs');
 
-  app.get('', function(req, res) {
+  app.get('/', function(req, res) {
       res.render('pages/homepage');
   });
   app.get('/learnhome', function(req, res) {
