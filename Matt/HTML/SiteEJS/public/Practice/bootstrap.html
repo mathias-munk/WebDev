@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width = device-width, initial-scale = 1"/>
+    <title>Bootstrap Tutorial</title>
+    <!-- Put Bootstrap FIRST, then personal style sheets after -->
+
+    <!-- Can link to website -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+    <!-- Or link to local Bootstrap files -
+    <link href="css/bootstrap.css" type="text/css" rel="stylesheet"/> -->
+
+    <!-- Personal styling -->
+    <link href="styleBootstrap.css" type="text/css" rel="stylesheet"/>
+    <!-- FREE Google fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'/>
+</head>
+<body>
+
+<!-- CAROUSEL - All images added in css file -->
+<!-- Surround everything with a div with the class carousel slide -->
+<div id="theCarousel" class="carousel slide" data-ride="carousel">
+
+    <!-- Define no. of slides in carousel -->
+    <ol class="carousel-indicators">
+        <!-- Only 1 slider active at a time -->
+        <li data-target="#theCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#theCarousel" data-slide-to="1" ></li>
+        <li data-target="#theCarousel" data-slide-to="2" ></li>
+    </ol>
+    <!-- Define the text to place over each image -->
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class="slide1"></div>
+            <div class="carousel-caption">
+                <h1>Slider 1</h1>
+                <p>Thousands of backgrounds for free</p>
+                <p><a href="#" class="btn btn-primary btn-sm">Get them Now</a></p>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="slide2"></div>
+            <div class="carousel-caption">
+                <h1>Slider 2</h1>
+                <p>Thousands of colours</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="slide3"></div>
+            <div class="carousel-caption">
+                <h1>Slider 3</h1>
+                <p>Thousands of illustrations</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Define actions when arrows are clicked -->
+    <a class="left carousel-control" href="#theCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#theCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+
+</div>
+
+<!--container OR container-fluid (container has padding)-->
+<div class="container">
+
+    <!--page header adds space around text + enlarges text + adds underline-->
+    <div class="page-header">
+        <h1>Bootstrap Tutorial</h1>
+    </div>
+
+    <!-- Use row class to initialise 12 column system -->
+    <div class="row">
+        <!-- ALL THESE COLUMNS ARE THE SAME SIZE AND ALWAYS SHOWING -->
+        <!-- Use different no. of columns with large/md/s/xs for different screen sizes -->
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <h4>Column 1</h4>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <h4>Column 2</h4>
+            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+        <!-- VERY USEFUL - CLEARFIX -->
+        <!-- Paragraph jumps when in SMALL configuration - so clearfix sm -->
+        <div class="clearfix visible-sm"></div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <h4>Column 3</h4>
+            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <h4>Column 4</h4>
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+
+        <div class="clearfix visible-lg"></div>
+        <!-- ALL THESE COLUMNS ARE DIFFERENT SIZES AND COLLAPSIBLE -->
+        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
+            <!-- Click to show/hide content (collapse) -->
+            <h4><a href="#col1Content" data-toggle="collapse">Column1</a></h4>
+            <!-- Collapse (first loads collapsed), Collapse IN (loads uncollapsed) -->
+            <div id="col1Content" class="collapse in">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-8 col-xs-12">
+            <!-- Click to show/hide content (collapse) -->
+            <h4><a href="#col2Content" data-toggle="collapse">Column2</a></h4>
+            <!-- Collapse (first loads collapsed), Collapse IN (loads collapsed) -->
+            <div id="col2Content" class="collapse">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <!-- Click to show/hide content (collapse) -->
+            <h4><a href="#col3Content" data-toggle="collapse">Column3</a></h4>
+            <!-- Collapse (first loads collapsed), Collapse IN (loads collapsed) -->
+            <div id="col3Content" class="collapse">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+        </div>
+    </div>
+
+    <!-- HIDE ELEMENTS BASED ON SCREEN SIZE -->
+    <!-- well adds a rounded border + background (hidden-sm = hidden in small) -->
+    <!-- E.g. first box is hidden for small, medium and large (only shows in xs) -->
+    <div class="well hidden-sm hidden-md hidden-lg">
+        <p>Screen &lt; 768px</p>
+    </div>
+    <div class="well hidden-md hidden-lg">
+        <p>Screen &gt; 768px and &lt; 992px</p>
+    </div>
+    <div class="well hidden-lg">
+        <p>Screen &gt; 992px and &lt; 1200px</p>
+    </div>
+    <div class="well">
+        <p>Screen &gt; 1200px</p>
+    </div>
+
+    <!-- TABLE MANIPULATION -->
+    <div class="row">
+        <!-- First class blocks out LEFT 6 columns, but only shows blank space in large mode -->
+        <div class="col-md-6"></div>
+        <!-- Table entered in to the RIGHT 6 columns, so in large mode it will only appear
+        on the right side of the screen, with black space on the left -->
+        <div class="col-md-6">
+            <!-- The table class adds nice spacing and the other classes add additional style -->
+            <!-- bordered = border, table-striped = adds striped, can be modified in css,
+            hover = highlights cells which are hovered over -->
+            <table class="table table-bordered table-hover">
+                <thead class = "text-center">
+                <tr>
+                    <td colspan="4">Best Baseball Players</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <!-- You can adjust the width of table columns as well -->
+                    <th class="col-md-2"></th>
+
+                    <!-- Use text alignment like text-center or text-right -->
+                    <th class="text-center">Average</th>
+                    <th class="text-center">RBIs</th>
+                    <th class="text-center">Homeruns</th>
+                </tr>
+                <tr>
+                    <td><a href="#">Hank Aaron*</a></td>
+                    <!-- Collapse (first loads collapsed), Collapse IN (loads uncollapsed) -->
+                        <td class="text-right">.305</td>
+                        <td class="text-center">2297</td>
+                        <td class="text-center">755</td>
+                </tr>
+                <tr>
+                    <td><a href="#">Babe Ruth*</a></td>
+                    <td class="text-right">.342</td>
+                    <td class="text-center">2214</td>
+                    <td class="text-center">714</td>
+                </tr>
+                <tr>
+                    <td><a href="#">Barry Bonds</a></td>
+                    <td class="text-right">.298</td>
+                    <td class="text-center">1996</td>
+                    <td class="text-center">762</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+    <!-- Enlarges fonts, puts everything in grey box INSIDE container -->
+    <div class="jumbotron">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>
+            <!-- Different classes are different button styles/ colours -->
+            <a href="#" class="btn btn-default btn-lg" role="button">More Info</a>
+            <input type="button" value="Info" class="btn btn-info"/>
+            <button type="submit" class="btn btn-danger" role="button">Button</button>
+            <!-- btn-sm = small button (also have xs, lg) -->
+            <button type="submit" class = "btn-primary btn-sm">Primary</button>
+            <button type="submit" class = "btn btn-success btn-xs">Success</button>
+            <button type="submit" class = "btn btn-warning btn-lg">Warning</button>
+            <button type="submit" class = "btn btn-link btn-lg">Link</button>
+            <!-- Disabled buttons -->
+            <button type="button" class="btn btn-lg btn-primary" disabled="disabled">Primary DISABLED</button>
+            <a href="#" class="btn btn-default btn-lg disabled" role="button">Link DISABLED</a>
+
+            <!-- BUTTON GROUP - all buttons are connected, use for header bar -->
+            <div class="btn-group btn-group-lg" role="group">
+                <button type="button" class="btn btn-default">Small</button>
+                <button type="button" class="btn btn-default">Medium</button>
+                <button type="button" class="btn btn-default">Large</button>2
+            </div>
+            <button type="button" class="btn btn-lg"><span class="glyphicon glyphicon-home"></span> Home</button>
+            <a href="#" class="btn btn-default btn-lg" role="button"><span class="glyphicon glyphicon-home"></span> Home</a>
+
+        </p>
+    </div>
+
+    <!-- IMAGES - Adding image with rounding, placement, etc -->
+    <!-- Responsive = max width=screen, add rounded corners, image inside circle,
+         pull left, pull right, centre block -->
+    <img src="Images/bkgrnd1.png" id="stone-sinai"
+         class="img-responsive img-thumbnail pull-left" alt="Responsive Image"/>
+
+
+    <!-- Input fields - USE FOR FORMS -->
+    <div class="row">1
+        <div class="col-md-6">
+            <!-- User input forms - Username, password, filling in user info etc -->
+            <div class="input-group input group-lg">
+                <span class="input-group-addon">Username</span>
+                <input type="text" class="form-control" placeholder="Bob123"/>
+            </div><br/>
+
+            <!-- This input form saved as a button -->
+            <div class="input-group input group-sm">
+                <input type="text" class="form-control" placeholder="Username"/>
+                <!-- All held within span -->
+                <!-- Button can be used to accept trigger events -->
+                <span class="input-group-btn">
+                <button class="btn btn-default">Enter</button>
+                </span>
+            </div><br/>
+        </div>
+    </div>
+
+    <!-- Different text types -->
+    <div class="jumbotron jumbo2">
+        <span class="text-muted">text-muted</span>
+        <span class="text-primary">text-primary</span>
+        <span class="text-success">text-success</span>
+        <span class="text-info">text-info</span>
+        <span class="text-warning">text-warning</span>
+        <span class="text-danger">text-danger</span>
+        <br/>
+        <span class="bg-muted">text-muted</span>
+        <span class="bg-primary">text-primary</span>
+        <span class="bg-success">text-success</span>
+        <span class="bg-info">text-info</span>
+        <span class="bg-warning">text-warning</span>
+        <span class="bg-danger">text-danger</span>
+    </div>
+
+    <!-- DROPDOWN MENU - USE FOR TOP MENU BUTTONS -->
+    <div class="dropdown">
+        <!-- Accessible rich internet applications (ARIA)
+        Used for people with disabilities, e.g. screen readers -->
+        <button class="btn btn-primary dropdown-toggle btn-lg"
+        type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="true">Favourite Food
+        <span class="caret"></span>
+        </button>
+
+        <ul class="dropdown-menu">
+            <li class="dropdown-header">Dinner</li>
+            <li><a href="#">Beans on toast</a></li>
+            <li><a href="#">Sausage and mash</a></li>
+            <li><a href="#">Spaghetti</a></li>
+            <li role="separator" class="divider"></li>
+            <li class="dropdown-header">Lunch</li>
+            <li class="disabled"><a href="#">Jacket Potato</a></li>
+            <li><a href="#">Egg on Toast</a></li>
+            <li><a href="#">Avocado Toast</a></li>
+
+        </ul>
+    </div>
+
+    <!-- DROPDOWN BUTTON INSIDE USER INPUT FIELD -->
+    <br/>
+    <div class="row">
+        <div class="input-group">
+            <div class="input-group-btn">
+                <button type="button" class="btn btn-default dropdown-toggle"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    USER ID
+                </button>
+
+                <span class="caret"></span>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+            <input type="text" class="form-control" aria-label="..."/>
+        </div>
+    </div>
+
+    <!-- INPUT FIELD WITH CHECKBOX -->
+    <br/>
+    <div class="row">
+        <div class="input-group">
+            <span class="input-group-addon">
+                <input type="checkbox"/>
+            </span>
+
+            <input type="text" class="form-control"/>
+        </div>
+    </div>
+
+    <!-- USE FOR TOP OF PAGE - HOME, LEARN, TEST, ETC -->
+    <!-- HORIZONTAL MENU -->
+    <br/>
+    <ul class="list-inline">
+        <li><a href="#"><span class="text-danger">Home</span></a></li>
+        <li><a href="#">About</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact
+                <!-- class = caret gives little down arrow -->
+                <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href="#">Phone</a></li>
+                <li><a href="#">Email</a></li>
+                <li><a href="#">Schedule Appointment</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <!-- VERTICAL MENU BUTTONS-->
+    <!-- nav-pills, nav-tabs -->
+    <!-- nav-stacked makes it vertical -->
+    <ul class="nav nav-tabs nav-stacked">
+        <li class="active"><a href="#">Home</a></li>
+        <li class="active"><a href="#">About</a></li>
+
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact
+                <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href="#">Phone</a></li>
+                <li><a href="#">Email</a></li>
+                <li><a href="#">Schedule Appointment</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <!-- HORIZONTAL superhero menu with clickable options -->
+    <!-- USE FOR THE DIFFERENT LEARN PAGES -->
+    <ul class="nav nav-pills">
+        <li class="active"><a data-toggle="tab" href="#superman">Superman</a></li>
+        <li><a data-toggle="tab" href="#batman">Batman</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Flash
+                <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li class="disabled"><a href="#flash">The Flash</a></li>
+                <li><a data-toggle="tab" href="#kidflash">Kid Flash</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <!-- Active window on screen whenever it loads -->
+        <div id="superman" class="tab-pane fade in active">
+            <p>Superman fictional DC character</p>
+        </div>
+        <div id="batman" class="tab-pane fade">
+            <p>batman fictional DC character</p>
+        </div>
+        <div id="flash" class="tab-pane fade">
+            <p>flash fictional DC character</p>
+        </div>
+        <div id="kidflash" class="tab-pane fade">
+            <p>kidflash fictional DC character</p>
+        </div>
+    </div>
+
+    <!-- COLLAPSIBLE NAVIGATION BAR -->
+
+    <!-- .navbar-fixed-top, or .navbar-fixed-bottom can be added to keep the nav bar
+    fixed on the screen -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+
+                <!-- Button that toggles the navbar on and off on small screens -->
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                     <!-- Hides information from screen readers - DISABILITY  -->
+                    <span class="sr-only"></span>
+
+                    <!-- Draws 3 bars in navbar button when in small mode -->
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <!-- You'll have to add padding in your image on the top and right of a few pixels (CSS Styling will break the navbar) -->
+                <a class="pull-left" href="#"><img src="Images/nike.png"/></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">About</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false">Contact Us <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Email</a></li>
+                            <li><a href="#">Phone</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Set Appointment</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- navbar-left will move the search to the left -->
+                <form class="navbar-form navbar-right" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search"/>
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <br/>
+
+    <!-- PAGINATION - USE FOR THE JS TEST PAGES -->
+    <nav>
+        <ul class="pagination">
+            <li>
+                <!-- aria-hidden stops screen readers reading it -->
+                <!-- aria-label is what the screen reader reads instead -->
+                <!-- &laquo;, raquo; not working?? -->
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">Previous</span>
+                </a>
+            </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+                <a href="#" aria-label="Next">
+                    <span aria-hidden="true">Next</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <br/>
+
+    <!-- Thumbnails -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <div class="thumbnail">
+                    <img src="Images/insta.png" alt="..."/>
+                    <div class="caption">
+                        <h3>Hamburger</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <p><a href="#" class="btn btn-primary" role="button">Add to Cart</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <div class="thumbnail">
+                    <img src="Images/nike.png" alt="..."/>
+                    <div class="caption">
+                        <h3>Polenta</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <p><a href="#" class="btn btn-primary" role="button">Add to Cart</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <div class="thumbnail">
+                    <img src="Images/insta.png" alt="..."/>
+                    <div class="caption">
+                        <h3>Meatball Sub</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <p><a href="#" class="btn btn-primary" role="button">Add to Cart</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <div class="thumbnail">
+                    <img src="Images/nike.png" alt="..."/>
+                    <div class="caption">
+                        <h3>Eggplant</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <p><a href="#" class="btn btn-primary" role="button">Add to Cart</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Progress bar -->
+    <!-- Provide progress feedback to users by changing the value of style for the progress-bar
+    (Doesn't work on IE9 or below) progress-bar-striped is optional -->
+    <div class="container">
+        <div class="progress">
+            <!-- flat or striped -->
+            <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                <span class="sr-only">60% Complete</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Media object -->
+    <div class="container">
+        <div class="media">
+
+            <!-- You can use media-top, media-middle, or media-bottom -->
+            <div class="media-left media-top">
+                <a href="#">
+                    <img class="media-object" src="Images/insta.png" alt="..."/>
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">Instagram Text</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor...</p>
+            </div>
+        </div>
+
+        <div class="media">
+            <div class="media-left media-top">
+                <a href="#">
+                    <img class="media-object" src="Images/nike.png" alt="..."/>
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">Nike text</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor...</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- List Groups - CAN USE THESE FOR BUTTONS ON ACCOUNT PAGE -->
+    <div class="container">
+        <ul class="list-group">
+
+            <!-- Disable elements -->
+            <li class="list-group-item disabled">Verizon Email</li>
+            <li class="list-group-item">
+
+                <!-- You can add badges -->
+                <span class="badge">123</span>Gmail</li>
+            <li class="list-group-item">Sent</li>
+
+            <!-- You can style elements like warning, success, info, danger-->
+            <li class="list-group-item list-group-item-warning">Junk</li>
+        </ul>
+
+        <!-- Add lists of links -->
+        <a href="#" class="list-group-item">Add Account</a>
+
+        <!-- Add any html elements in list -->
+        <a href="#" class="list-group-item">
+            <h4 class="list-group-item-heading">Delete Account</h4>
+            <p class="list-group-item-text">The account will be permanently deleted</p>
+        </a>
+
+        <!-- You can put buttons in the list -->
+        <button type="button" class="list-group-item">Check for Mail</button>
+
+    </div>
+
+
+
+
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<!-- Link to bootstrap js -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<!-- Link js locally -
+<script src="js/bootstrap.min.js"></script> -->
+</body>
+</html>
