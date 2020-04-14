@@ -1,0 +1,180 @@
+.jumbotron {
+    background-image: linear-gradient(to right, #56CCF2, #2F80ED);
+    color: white;
+    padding-top: 20px;
+    font-style: arial;
+}
+
+#jumbo {
+    background: linear-gradient(-30deg, #A9A9A9	, #A9A9A9);
+    padding: 20px;
+    border: 1px solid white;
+    text-align: center;
+}
+
+#grad {
+    background-image: linear-gradient(to right, #56CCF2, #2F80ED);
+    color: white;
+}
+
+.page-title {
+    margin-top: 10px;
+}
+
+#page-title {
+    color:white;
+    font-style: italic;
+    letter-spacing: 1.5px;
+    font-size: 55px;
+}
+
+#page-text {
+    color:white;
+    font-style: italic;
+    padding-bottom: 15px;
+}
+
+#sort-buttons {
+    width: 100%;
+    text-style: bold;
+    margin-bottom: 15px;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    background-image: linear-gradient(to right, #56CCF2, #2F80ED);
+    color: white;
+    margin: 0 0 50px;
+    min-height: 100%;
+}
+
+.letter {
+  display: inline-block;
+  font-style: arial;
+}
+
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+  background-color: #f0f5fa;
+}
+
+.navbar-default {
+    background-color: #f0f5fa;
+    border: 3px solid #dee2e6;
+}
+
+footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #f0f5fa;
+  height: 45px;
+  color:  #A9A9A9;
+  font-family: Arial;
+  text-align: center;
+}
+
+#footer-text {
+    padding-top:12px;
+}
+
+.header {
+  background-color: #f0f5fa;
+}
+
+
+
+.navbar .navbar-collapse {
+  text-align: center;
+  border-top: 0.5px solid #dee2e6;
+}
+
+
+
+/* DROPDOWN MENU CODE BELOW ADAPTED FROM:
+https://bootsnipp.com/snippets/kM4Q
+*/
+.dropdown-submenu {
+    position: relative;
+}
+
+/* Moves submenu to the right of button */
+.dropdown-submenu>.dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+}
+
+/* Causes submenu to appear when hover over button */
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block;
+}
+
+/* Arrow colour and placement */
+.dropdown-submenu>a:after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #888;
+    margin-top: 5px;
+    margin-right: -10px;
+}
+
+/* Arrow colour after selecting menu */
+.dropdown-submenu:hover>a:after {
+    border-left-color: #ccc;
+}
+
+.dropdown-submenu.pull-left {
+    float: none;
+}
+
+.login-button {
+    width: 100%;
+    margin-top: 5px;
+}
+
+.login-input {
+    margin-top: 3px;
+}
+
+.login-menu {
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    text-align: center;
+
+}
+
+.img-thumbnail {
+    background-color: #2E86C1;
+    border: 5px solid #dee2e6;
+    vertical-align: middle;
+}
+
+.logo {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+}
+
+.title {
+    color: #2E86C1;
+    font-family: Arial;
+    text-align: center;
+    font-size: 60px;
+    text-style: bold;
+}
