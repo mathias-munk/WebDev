@@ -4,7 +4,7 @@ window.onload = function() {
     bubbleSort(originalString, startOrder);
     let animation = anime({
         targets: ".page-title",
-        translateY: -20,
+        translateY: -10,
         loop: 2,
         direction: 'alternate',
         duration: 1000,
