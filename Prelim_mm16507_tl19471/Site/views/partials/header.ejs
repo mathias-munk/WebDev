@@ -1,0 +1,129 @@
+<nav class="navbar navbar-default" id="Header">
+    <div class="container header">
+        <div class="page-header">
+            <h1 class="title"><img src="images/svg-logo.svg" class="logo"/>
+                Algorithm Animation</h1>
+        </div>
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <!-- Button that toggles the navbar on and off on small screens -->
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <!-- Hides information from screen readers -->
+                <span class="sr-only"></span>
+
+                <!-- Draws 3 bars in navbar button when in small mode -->
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav nav-pills navbar-nav">
+                <li><a id="navbar-home" href="/">Home</a></li>
+                <!-- LEARN dropdown menu -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" id="navbar-learn"
+                       aria-haspopup="true" aria-expanded="false">Learn <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                        <li><a href="/learnhome"><i>Learn Homepage</i></a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-submenu">
+                            <a tabindex="-1" href="/learnbubble">BubbleSort</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/learnbubble">Overview</a></li>
+                                <li><a href="/learnbubble#HowItWorks">How it Works</a></li>
+                                <li><a href="/learnbubble#Animation">Animation</a></li>
+                                <li><a href="/learnbubble#Code">Code</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a tabindex="-1" href="/learnmerge">MergeSort</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/learnmerge">Overview</a></li>
+                                <li><a href="/learnmerge#HowItWorks">How it Works</a></li>
+                                <li><a href="/learnmerge#Animation">Animation</a></li>
+                                <li><a href="/learnmerge#Code">Code</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a tabindex="-1" href="/learnquick">QuickSort</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/learnquick">Overview</a></li>
+                                <li><a href="/learnquick#HowItWorks">How it Works</a></li>
+                                <li><a href="/learnquick#Animation">Animation</a></li>
+                                <li><a href="/learnquick#Code">Code</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <!-- Test dropdown menu -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" id="navbar-test"
+                       aria-haspopup="true" aria-expanded="false">Test <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/testhome"><i>Test Homepage</i></a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">BubbleSort</a></li>
+                        <li><a href="#">MergeSort</a></li>
+                        <li><a href="#">QuickSort</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Login</a>
+                    <ul class="dropdown-menu login-menu">
+                        <li class="input-group login-input">
+                            <input type="text" class="form-control" id="login-username"
+                                   placeholder="Username"/>
+                        </li>
+                        <li class="input-group login-input">
+                            <input type="password" class="form-control" id="login-password"
+                                   data-toggle="password" placeholder="Password"/>
+                        </li>
+                        <li>
+                            <button type="submit" class = "btn-primary login-button"
+                                    id="login">Log In</button>
+                        </li>
+                    </ul>
+
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Sign Up</a>
+                    <ul class="dropdown-menu login-menu">
+                        <li class="input-group login-input">
+                            <input type="text" class="form-control" id="signUp-firstname"
+                                   placeholder="First Name"/>
+                        </li>
+                        <li class="input-group login-input">
+                            <input type="text" class="form-control" id="signUp-lastname"
+                                   placeholder="Last Name"/>
+                        </li>
+                        <li class="input-group login-input">
+                            <input type="email" class="form-control" id="signUp-email"
+                                   placeholder="Email"/>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li class="input-group">
+                            <input type="text" class="form-control" id="signUp-username"
+                                   placeholder="Choose Username"/>
+                        </li>
+                        <li class="input-group login-input">
+                            <input type="password" class="form-control" data-toggle="password"
+                                   id="signUp-password" placeholder="Choose Password"/>
+                        </li>
+                        <li>
+                            <button type="submit" class = "btn-primary login-button"
+                                    id="signUp">Create Account</button>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
