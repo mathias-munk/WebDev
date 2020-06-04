@@ -51,6 +51,18 @@ https.createServer({
       res.render('pages/testhome');
   });
 
+  app.get('/testbubble', function(req, res) {
+      res.render('pages/testbubble');
+  });
+
+  app.get('/testmerge', function(req, res) {
+      res.render('pages/testmerge');
+  });
+
+  app.get('/testquick', function(req, res) {
+      res.render('pages/testquick');
+  });
+
 db.serialize(function(){
     db.run("DROP TABLE IF EXISTS user");
     db.run("CREATE TABLE user (id INT, pw TEXT, admin BOOL)");

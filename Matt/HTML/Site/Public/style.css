@@ -2,19 +2,25 @@
     background-image: linear-gradient(to right, #56CCF2, #2F80ED);
     color: white;
     padding-top: 20px;
-    font-style: arial;
 }
 
+
 #jumbo {
-    background: linear-gradient(-30deg, #A9A9A9	, #A9A9A9);
+    background: #6d858f;
     padding: 20px;
-    border: 1px solid white;
+    border: 1.5px solid white;
+    text-align: center;
+}
+
+#jumbo-test {
+    background: none;
+    padding: 20px;
     text-align: center;
 }
 
 #grad {
     background-image: linear-gradient(to right, #56CCF2, #2F80ED);
-    color: white;
+    color: #fff;
 }
 
 .page-title {
@@ -23,14 +29,12 @@
 
 #page-title {
     color:white;
-    font-style: italic;
     letter-spacing: 1.5px;
     font-size: 55px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 #page-text {
-    color:white;
-    font-style: italic;
     padding-bottom: 15px;
 }
 
@@ -38,11 +42,13 @@
     width: 100%;
     text-style: bold;
     margin-bottom: 15px;
+    background: #ffa500;
 }
 
 html {
   position: relative;
   min-height: 100%;
+
 }
 
 body {
@@ -50,11 +56,13 @@ body {
     color: white;
     margin: 0 0 50px;
     min-height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    overscroll-behavior-y: none;
 }
 
 .letter {
   display: inline-block;
-  font-style: arial;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .homepage #navbar-home,
@@ -62,8 +70,8 @@ body {
 .learnbubble #navbar-learn,
 .learnmerge #navbar-learn,
 .learnquick #navbar-learn,
-.testhome.ejs #navbar-test {
-  color: blue;
+.testhome #navbar-test {
+  hover: on;
 }
 
 .navbar .navbar-nav {
@@ -86,7 +94,7 @@ footer {
   background-color: #f0f5fa;
   height: 45px;
   color:  #A9A9A9;
-  font-family: Arial;
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
 }
 
@@ -177,8 +185,87 @@ https://bootsnipp.com/snippets/kM4Q
 
 .title {
     color: #2E86C1;
-    font-family: Arial;
     text-align: center;
     font-size: 60px;
     text-style: bold;
+}
+
+.table-title {
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    text-style: bold;
+}
+
+#quiz-jumbo {
+    /*background: linear-gradient(to right, #373D3F, #778899);*/
+    background: #474f52;
+    border: 4px;
+    border-color: #eee;
+    border-style:solid;
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
+    padding-bottom: 20px;
+}
+
+#pagination {
+    padding-left: 0px;
+    padding-bottom: 0px;
+    position: relative;
+    text-align: centre;
+}
+
+#quiz-next {
+    padding: 6px 29px
+}
+
+.pagination {
+    margin: 0px !important;
+}
+
+
+.slide {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.hidden-slide {
+    display: none;
+}
+
+.active-slide{
+  opacity: 1;
+  z-index: 2;
+}
+
+.quiz-container{
+  position: relative;
+  height: 250px;
+  margin-top: 40px;
+}
+
+.question{
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.answers {
+  margin-bottom: 20px;
+  text-align: left;
+  display: inline-block;
+}
+.answers label{
+  display: block;
+  margin-bottom: 10px;
+}
+
+#quiz-submit {
+    color: white;
+    background: #0275d8;
 }
