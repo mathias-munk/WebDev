@@ -1,6 +1,6 @@
 // Sample express web server.  Supports the same features as the provided server,
 // and demonstrates a big potential security loophole in express.
-
+"use strict";
 var express = require("express");
 var app = express();
 
