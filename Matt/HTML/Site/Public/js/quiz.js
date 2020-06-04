@@ -1,5 +1,12 @@
 "use strict";
 
+
+function getData(){
+  fetch("/questions").then(receive);
+}
+function receive(){
+  
+}
 // Immediately invoked function expression
 (function(){
   // Functions
@@ -159,10 +166,13 @@
   const resultsContainer = document.getElementById('results');
   const submitButton = document.getElementById('quiz-submit');
   const startButton = document.getElementById('quiz-start');
-  const dbSetup = require("./createDB");
-  dbSetup.initThis;
-  const myQuestions =  dbSetup.getQuestions(1);
-  /*const myQuestions = [
+  
+
+  
+
+
+
+  const myQuestions = [
     {
       question: "Who invented JavaScript?",
       answers: {
@@ -248,7 +258,7 @@
               correctAnswer: "d"
             }
   ];
-  */
+ 
   // Kick things off
   buildQuiz();
 
@@ -275,4 +285,3 @@
 
 
 })();
-
