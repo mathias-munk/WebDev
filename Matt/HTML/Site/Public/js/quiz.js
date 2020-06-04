@@ -4,8 +4,8 @@
 function getData(){
   fetch("/questions").then(receive);
 }
-function receive(){
-  
+function receive(response){
+
 }
 // Immediately invoked function expression
 (function(){
