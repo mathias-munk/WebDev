@@ -29,13 +29,13 @@ async function initThis(){
                 }
                 console.log("User id: " +row.id, row.pw);
             });
-        db.serialize(function(){
-            await db.run("DROP TABLE IF EXISTS test");
-            await db.run("DROP TABLE IF EXISTS questions");
-            await db.run("DROP TABLE IF EXISTS attempt");
-            await db.run("CREATE TABLE test(ID INTEGER PRIMARY KEY autoincrement, setby INT NOT NULL, FOREIGN KEY(setby) REFERENCES user(id))")
-            await db.run("CREATE TABLE questions (id INTEGER PRIMARY KEY autoincrement, question TEXT, answer1 TEXT, answer2 TEXT, answer3 TEXT, correct INT, test INT)");
-            await db.run("CREATE TABLE attempt (userID INTEGER NOT NULL, testID INTEGER NOT NULL, score INTEGER NOT NULL, FOREIGN KEY(userID) REFERENCES user(id), FOREIGN KEY (testID) REFERENCES test(ID), PRIMARY KEY(userID, testID))");
+        db.serialize( async function(){
+            db.run("DROP TABLE IF EXISTS test");
+            db.run("DROP TABLE IF EXISTS questions");
+            db.run("DROP TABLE IF EXISTS attempt");
+            db.run("CREATE TABLE test(ID INTEGER PRIMARY KEY autoincrement, setby INT NOT NULL, FOREIGN KEY(setby) REFERENCES user(id))")
+             db.run("CREATE TABLE questions (id INTEGER PRIMARY KEY autoincrement, question TEXT, answer1 TEXT, answer2 TEXT, answer3 TEXT, correct INT, test INT)");
+             db.run("CREATE TABLE attempt (userID INTEGER NOT NULL, testID INTEGER NOT NULL, score INTEGER NOT NULL, FOREIGN KEY(userID) REFERENCES user(id), FOREIGN KEY (testID) REFERENCES test(ID), PRIMARY KEY(userID, testID))");
             
             var stmt = db.prepare("INSERT INTO test (setby) VALUES(?)");
             stmt.run(1);
@@ -50,13 +50,13 @@ async function initThis(){
             stmt.run(1,1,1);
             stmt.finalize;
             console.log("hi");
-            await db.each("SELECT id, question, answer1, test FROM questions", (err,row)=>{
+            db.each("SELECT id, question, answer1, test FROM questions", (err,row)=>{
                 if(err){
                     console.error(err.message);
                 }
                 console.log(row.id + "\t" + row.question + "\t" + row.answer);
             });
-            await db.each("SELECT userID, testID, score FROM attempt", (err,row)=>{
+             db.each("SELECT userID, testID, score FROM attempt", (err,row)=>{
                 if(err){
                     console.error(err.message);
                 }
@@ -76,10 +76,10 @@ initThis();
 
 
 
-function getQuestions(testID){
+async function getQuestions(testID){
     let sql = 'SELECT question, answer1, answer2, answer3, correct FROM questions WHERE test = ?'
     var questions = [];
-    db.each(sql, [testID], (err, row) =>{
+    await db.each(sql, [testID], (err, row) =>{
         if(err){
             throw err;
         }
@@ -92,9 +92,9 @@ function getQuestions(testID){
             },
             'correctAnswer': row.correct
         });
-        console.log("looping");
+        console.log(questions.length);
     });
-    console.log
+    
     return questions;
 }
 
