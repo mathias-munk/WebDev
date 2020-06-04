@@ -131,6 +131,12 @@
   const paginationContainer = document.getElementById('pagination');
   const resultsContainer = document.getElementById('results');
   const submitButton = document.getElementById('quiz-submit');
+  const dbConfig = require("/createDB");
+
+ 
+
+  
+
   const myQuestions = [
     {
       question: "Who invented JavaScript?",
