@@ -214,6 +214,7 @@ https://bootsnipp.com/snippets/kM4Q
     padding-bottom: 0px;
     position: relative;
     text-align: centre;
+
 }
 
 #quiz-next {
@@ -265,7 +266,7 @@ https://bootsnipp.com/snippets/kM4Q
   margin-bottom: 10px;
 }
 
-#quiz-submit {
+#quiz-submit, #quiz-start {
     color: white;
     background: #0275d8;
 }
