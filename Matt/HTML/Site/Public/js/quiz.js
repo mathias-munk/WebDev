@@ -60,7 +60,7 @@
 
   function showResults(){
 
-    $("#quiz-submit").remove();
+    submitButton.style.visibility = 'hidden';
     previousButton.removeEventListener("click", showPreviousSlide);
     previousButton.innerHTML = `<a href="/testhome">< Back</a>`;
     // gather answer containers from our quiz

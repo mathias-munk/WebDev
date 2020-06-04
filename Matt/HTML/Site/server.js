@@ -49,6 +49,10 @@ https.createServer({
       res.render('pages/testhome');
   });
 
+  app.get('/testbubble', function(req, res) {
+      res.render('pages/testbubble');
+  });
+
   
 
   
