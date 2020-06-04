@@ -14,8 +14,7 @@ window.onload = function() {
 
 var originalString = "mASbeborutBl lgorith";
 var startOrder = [21,13,8,3,6,4,9,10,2,11,1,5, 12, 14, 15, 16, 17,18,19,20];
-var finalString = "BubbleSort Algorithm";
-var finalOrder = [1,2,4,5,6,7,8,9,10,11,3,12, 13,14,15,16,17,18,19,20,21];
+
 
 // start order is array of numbers which indicate which position
 // each letter from the final string is in
