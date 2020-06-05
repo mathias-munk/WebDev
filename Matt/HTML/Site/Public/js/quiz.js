@@ -67,7 +67,7 @@ function receive(response){
 
   function showResults(){
 
-    $("#quiz-submit").remove();
+    submitButton.style.visibility = 'hidden';
     previousButton.removeEventListener("click", showPreviousSlide);
     previousButton.innerHTML = `<a href="/testhome">< Back</a>`;
     // gather answer containers from our quiz
@@ -166,10 +166,6 @@ function receive(response){
   const resultsContainer = document.getElementById('results');
   const submitButton = document.getElementById('quiz-submit');
   const startButton = document.getElementById('quiz-start');
-  
-
-  
-
 
 
   const myQuestions = [

@@ -56,6 +56,10 @@ https.createServer({
   app.get('/testbubble', function(req,res){
       res.render('pages/testbubble', getQuestions(1));
   });
+
+  app.get('/report', function(req,res){
+        res.render('pages/report', getQuestions(1));
+  });
   
 
   
