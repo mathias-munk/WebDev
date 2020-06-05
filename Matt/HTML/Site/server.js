@@ -3,7 +3,7 @@
 "use strict";
 var express = require("express");
 var app = express();
-
+var questions = [];
 const https = require('https'), fs = require("fs");
 
 var banned = [];
@@ -50,11 +50,19 @@ https.createServer({
   });
 
   app.get('/questions', function(req,res){
-      res.send(getQuestions(1));
+      res.json()
   });
-
+  
+  
   app.get('/testbubble', function(req,res){
-      res.render('pages/testbubble', getQuestions(1));
+    res.render('pages/testbubble');
+  });
+  app.get('/data', function(req,res){
+    getQuestions(1);
+    setTimeout(function(){
+          console.log("hi" + JSON.stringify(questions));
+          res.send(questions);
+    }, 100);  
   });
   
 
@@ -194,26 +202,32 @@ initThis();
 
 
 
-async function getQuestions(testID){
+function getQuestions(testID){
     let sql = 'SELECT question, answer1, answer2, answer3, correct FROM questions WHERE test = ?'
-    var questions = [];
-    await db.each(sql, [testID], (err, row) =>{
+    questions = [];
+    db.serialize(function(){
+
+    
+     db.all(sql, [testID], (err, rows) =>{
         if(err){
             throw err;
         }
-        questions.push({
-            'question': row.question,
-            'answers':{
-                a: row.answer1,
-                b: row.answer2, 
-                c: row.answer3,
-            },
-            'correctAnswer': row.correct
-        });
+        rows.forEach(row=>
+            questions.push({
+                'question': row.question,
+                'answers':{
+                    a: row.answer1,
+                    b: row.answer2, 
+                    c: row.answer3,
+                },
+                'correctAnswer': row.correct
+            })
+            )
+          
         console.log(questions.length);
     });
-    
-    return questions;
+    });
+    console.log(questions.length + "bottom of test q's");
 }
 
 function capFirst(string) {
