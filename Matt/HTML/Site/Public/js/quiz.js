@@ -1,17 +1,27 @@
 "use strict";
-
-
+var myQuestions;
+var iQuestions = [];
 function getData(){
-  fetch("/questions").then(receive);
+  fetch("/data").then(receive);
 }
 function receive(response){
-
+  iQuestions = response.json().then(data=> {
+    console.log(data);
+    myQuestions = data;
+    console.log(myQuestions);
+  })
 }
+getData();
 // Immediately invoked function expression
-(function(){
+(
+  
+  setTimeout(function(){
   // Functions
+  
+
   function buildQuiz(){
     // variable to store the HTML output
+    
     const quizText = [];
     const pageNumbers = [];
 
@@ -166,6 +176,7 @@ function receive(response){
   const resultsContainer = document.getElementById('results');
   const submitButton = document.getElementById('quiz-submit');
   const startButton = document.getElementById('quiz-start');
+<<<<<<< HEAD
 
 
   const myQuestions = [
@@ -254,10 +265,17 @@ function receive(response){
               correctAnswer: "d"
             }
   ];
+=======
+  
+
+  
+>>>>>>> ed30060a9eb48cac37517f4ec5df8e1c9530593e
  
   // Kick things off
+  getData();
   buildQuiz();
-
+  
+  
   // Pagination
   const previousButton = document.getElementById("quiz-previous");
   const nextButton = document.getElementById("quiz-next");
@@ -280,4 +298,5 @@ function receive(response){
   }
 
 
-})();
+},500));
+
