@@ -176,100 +176,37 @@ getData();
   const resultsContainer = document.getElementById('results');
   const submitButton = document.getElementById('quiz-submit');
   const startButton = document.getElementById('quiz-start');
-<<<<<<< HEAD
-
-
-  const myQuestions = [
-    {
-      question: "Who invented JavaScript?",
-      answers: {
-        a: "Douglas Crockford",
-        b: "Sheryl Sandberg",
-        c: "Brendan Eich"
-      },
-      correctAnswer: "c"
-    },
-    {
-      question: "Which one of these is a JavaScript package manager?",
-      answers: {
-        a: "Node.js",
-        b: "TypeScript",
-        c: "npm"
-      },
-      correctAnswer: "c"
-    },
-    {
-      question: "Which tool can you use to ensure code quality?",
-      answers: {
-        a: "Angular",
-        b: "jQuery",
-        c: "RequireJS",
-        d: "ESLint"
-      },
-      correctAnswer: "d"
-    },
-    {
-          question: "Who invented JavaScript?",
-          answers: {
-            a: "Douglas Crockford",
-            b: "Sheryl Sandberg",
-            c: "Brendan Eich"
-          },
-          correctAnswer: "c"
-        },
-        {
-          question: "Which one of these is a JavaScript package manager?",
-          answers: {
-            a: "Node.js",
-            b: "TypeScript",
-            c: "npm"
-          },
-          correctAnswer: "c"
-        },
-        {
-          question: "Which tool can you use to ensure code quality?",
-          answers: {
-            a: "Angular",
-            b: "jQuery",
-            c: "RequireJS",
-            d: "ESLint"
-          },
-          correctAnswer: "d"
-        },
-        {
-              question: "Who invented JavaScript?",
-              answers: {
-                a: "Douglas Crockford",
-                b: "Sheryl Sandberg",
-                c: "Brendan Eich"
-              },
-              correctAnswer: "c"
-            },
-            {
-              question: "Which one of these is a JavaScript package manager?",
-              answers: {
-                a: "Node.js",
-                b: "TypeScript",
-                c: "npm"
-              },
-              correctAnswer: "c"
-            },
-            {
-              question: "Which tool can you use to ensure code quality?",
-              answers: {
-                a: "Angular",
-                b: "jQuery",
-                c: "RequireJS",
-                d: "ESLint"
-              },
-              correctAnswer: "d"
-            }
-  ];
-=======
-  
-
-  
->>>>>>> ed30060a9eb48cac37517f4ec5df8e1c9530593e
+//
+//  const myQuestions = [
+//    {
+//      question: "Who invented JavaScript?",
+//      answers: {
+//        a: "Douglas Crockford",
+//        b: "Sheryl Sandberg",
+//        c: "Brendan Eich"
+//      },
+//      correctAnswer: "c"
+//    },
+//    {
+//      question: "Which one of these is a JavaScript package manager?",
+//      answers: {
+//        a: "Node.js",
+//        b: "TypeScript",
+//        c: "npm"
+//      },
+//      correctAnswer: "c"
+//    },
+//            {
+//              question: "Which tool can you use to ensure code quality?",
+//              answers: {
+//                a: "Angular",
+//                b: "jQuery",
+//                c: "RequireJS",
+//                d: "ESLint"
+//              },
+//              correctAnswer: "d"
+//            }
+//  ];
  
   // Kick things off
   getData();
