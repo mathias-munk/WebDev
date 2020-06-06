@@ -96,7 +96,7 @@ getData();
 
       // Get id for that answer's page number
       var questionID = "quiz-q" + (questionNumber + 1);
-
+      console.log(currentQuestion.correctAnswer);
       // if answer is correct
       if(userAnswer === currentQuestion.correctAnswer){
         // add to the number of correct answers
@@ -125,6 +125,7 @@ getData();
 
     // show number of correct answers out of total
     resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+    fetch("result/1/1/" + numCorrect);
   }
 
   function showSlide(n) {
