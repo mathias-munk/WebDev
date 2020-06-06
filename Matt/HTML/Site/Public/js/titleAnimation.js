@@ -1,6 +1,5 @@
 "use strict";
 
-
 function animatePath(path) {
     console.log(path);
     anime({
