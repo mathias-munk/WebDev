@@ -94,6 +94,10 @@ https.createServer({
           res.send(questions);
     }, 100);  
   });
+
+  app.get('/report', function(req,res){
+        res.render('pages/report', getQuestions(1));
+  });
   
 
 

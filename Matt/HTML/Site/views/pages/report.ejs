@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <%- include('../partials/head') %>
+
+    <script src="js/report.js" defer="defer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
+</head>
+<body id="grad">
+
+<header>
+    <%- include('../partials/header') %>
+</header>
+
+<div class="container report-container">
+    <div class = "row report-element" id="report-title">
+        <h1>Assessment Report</h1>
+        <h5>Matthew Meades and Mathias Munk</h5>
+    </div>
+    <div class = "row report-element report-section">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <td colspan="2" class="table-title">Estimated Grades</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>Website Element</th>
+                <th>Estimated Grade</th>
+            </tr>
+            <tr>
+                <td><a href="#HTML-section" class="report-table-entry">HTML</a></td>
+                <td>A</td>
+            </tr>
+            <tr>
+                <td><a href="#CSS-section" class="report-table-entry">CSS</a></td>
+                <td>A</td>
+            </tr>
+            <tr>
+                <td><a href="#JS-section" class="report-table-entry">JavaScript</a></td>
+                <td>B</td>
+            </tr>
+            <tr>
+                <td><a href="#PNG-section" class="report-table-entry">PNG Images</a></td>
+                <td>N/A</td>
+            </tr>
+            <tr>
+                <td><a href="#SVG-section" class="report-table-entry">SVG Images</a></td>
+                <td>C</td>
+            </tr>
+            <tr>
+                <td><a href="#server-section" class="report-table-entry">Server</a></td>
+                <td>B</td>
+            </tr>
+            <tr>
+                <td><a href="#database-section" class="report-table-entry">Database</a></td>
+                <td>C</td>
+            </tr>
+            <tr>
+                <td><a href="#dynamic-section" class="report-table-entry">Dynamic Pages</a></td>
+                <td>N/A</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class = "row report-element report-section" id="HTML-section">
+            <div class = "report-heading"><h4>HTML</h4></div>
+        <div class = "report-text">
+            <ul>
+                <li>Created several linking web pages</li>
+                <li>Readability</li>
+                <li>Used Bootstrap 4 framework for more interactive, seamless designs </li>
+                <li>Bootstrap also allows navigation bar and column/row page to reformat as window changes size( e.g. mobile/laptop/monitor) so that text is also readable and aesthetic</li>
+                <li>Used XHTML validator (xmlns=http://www.w3.org/1999/xhtml)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class = "row report-element report-section" id="CSS-section">
+        <div class = "report-heading">
+            <h4>CSS</h4>
+        </div>
+        <div class = "report-text">
+            <ul>
+                <li>Used id/class tags in HTML to customise CSS</li>
+                <li>Bootstrap 4 for most styling, overriding and customising certain aspects to maintain a constant style across the website</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class = "row report-element report-section" id="JS-section">
+        <div class = "report-heading">
+            <h4>JavaScript</h4>
+        </div>
+        <div class = "report-text">
+            <ul>
+                <li>Spent considerable time writing the script for custom animation (i.e. bubblesort animation) and learnt a lot of javascript in the process</li>
+                <li>Used anime.js for client-side animations</li>
+                <li>Used EJS framework for partials (head, header and footer)</li>
+                <li>Separated javascript for each page to optimise loading time</li>
+                <li>JS script for navbar – fields turn red when no info is entered, key listeners added to retrieve login/signup information</li>
+                <li>Created scrolling animation for smooth scrolling on all pages</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class = "row report-element report-section" id="PNG-section">
+        <div class = "report-heading">
+            <h4>PNG Images</h4>
+        </div>
+        <div class = "report-text">
+            <ul>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class = "row report-element report-section" id="SVG-section">
+        <div class = "report-heading">
+            <h4>SVG Images</h4>
+        </div>
+        <div class = "report-text">
+            <ul>
+                <li>Designed and created the website logo in inkscape and converted to an svg file</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class = "row report-element report-section" id="server-section">
+        <div class = "report-heading">
+            <h4>Server</h4>
+        </div>
+        <div class = "report-text">
+            <ul>
+                <li>Spent time learning node and express to set up own server</li>
+                <li>Started to look at URL-validation</li>
+                <li>Began to set up a https server, however was unable to get any further than self-certification</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class = "row report-element report-section" id="database-section">
+        <div class = "report-heading">
+            <h4>Database</h4>
+        </div>
+        <div class = "report-text">
+            <ul>
+                <li>Setup a server side sqlite3 database ready for use with the dynamic pages.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class = "row report-element report-section" id="dynamic-section">
+        <div class = "report-heading">
+            <h4>Dynamic Pages</h4>
+        </div>
+        <div class = "report-text">
+            <ul>
+                <li>Yet to implement however have code ready for inserting data from sqlite3 database into EJS partials.</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <%- include('../partials/footer') %>
+</footer>
+
+</body>
+</html>

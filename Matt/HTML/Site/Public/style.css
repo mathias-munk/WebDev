@@ -45,6 +45,46 @@
     background: #ffa500;
 }
 
+#report-button {
+    width: 100%;
+    text-style: bold;
+    color: #2F80ED;
+}
+
+.report-element {
+    border: 1px solid #dee2e6;
+    border-spacing: 2px;
+    padding: 1.5rem;
+    background: #4F6D7A;
+    color: #FCF7F8;
+}
+
+#report-title {
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.report-heading {
+    padding-left: 10px;
+    padding-top: 0px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.report-text {
+    padding-top: 1.5rem;
+}
+
+.report-section {
+    margin-bottom: 10px;
+}
+
+.report-table-entry {
+    color: #FCF7F8;
+    text-decoration: none;
+}
+
+
+
 html {
   position: relative;
   min-height: 100%;

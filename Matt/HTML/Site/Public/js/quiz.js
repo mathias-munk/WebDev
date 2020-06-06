@@ -77,7 +77,7 @@ getData();
 
   function showResults(){
 
-    $("#quiz-submit").remove();
+    submitButton.style.visibility = 'hidden';
     previousButton.removeEventListener("click", showPreviousSlide);
     previousButton.innerHTML = `<a href="/testhome">< Back</a>`;
     // gather answer containers from our quiz
@@ -177,9 +177,37 @@ getData();
   const resultsContainer = document.getElementById('results');
   const submitButton = document.getElementById('quiz-submit');
   const startButton = document.getElementById('quiz-start');
-  
-
-  
+//
+//  const myQuestions = [
+//    {
+//      question: "Who invented JavaScript?",
+//      answers: {
+//        a: "Douglas Crockford",
+//        b: "Sheryl Sandberg",
+//        c: "Brendan Eich"
+//      },
+//      correctAnswer: "c"
+//    },
+//    {
+//      question: "Which one of these is a JavaScript package manager?",
+//      answers: {
+//        a: "Node.js",
+//        b: "TypeScript",
+//        c: "npm"
+//      },
+//      correctAnswer: "c"
+//    },
+//            {
+//              question: "Which tool can you use to ensure code quality?",
+//              answers: {
+//                a: "Angular",
+//                b: "jQuery",
+//                c: "RequireJS",
+//                d: "ESLint"
+//              },
+//              correctAnswer: "d"
+//            }
+//  ];
  
   // Kick things off
   getData();
