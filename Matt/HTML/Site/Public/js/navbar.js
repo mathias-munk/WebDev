@@ -6,13 +6,13 @@ function start() {
     document.getElementById("login").addEventListener("click", login);
     document.getElementById("signUp").addEventListener("click", signUp);
     /* Add enter key press listener for all input fields */
-    keyListenEnter(document.getElementById("login-username"), "login");
-    keyListenEnter(document.getElementById("login-password"), "login");
-    keyListenEnter(document.getElementById("signUp-firstname"), "signUp");
-    keyListenEnter(document.getElementById("signUp-lastname"), "signUp");
-    keyListenEnter(document.getElementById("signUp-email"), "signUp");
-    keyListenEnter(document.getElementById("signUp-username"), "signUp");
-    keyListenEnter(document.getElementById("signUp-password"), "signUp");
+    keyListenEnter(document.getElementById("login-username"), "loginA");
+    keyListenEnter(document.getElementById("login-password"), "loginA");
+    keyListenEnter(document.getElementById("signUp-firstname"), "signUpB");
+    keyListenEnter(document.getElementById("signUp-lastname"), "signUpB");
+    keyListenEnter(document.getElementById("signUp-email"), "signUpB");
+    keyListenEnter(document.getElementById("signUp-username"), "signUpB");
+    keyListenEnter(document.getElementById("signUp-password"), "signUpB");
 
 }
 
@@ -29,7 +29,7 @@ function keyListenEnter(input, buttonName) {
 
 
 
-function login() {
+function loginA() {
     var username = document.getElementById('login-username').value;
     var password = document.getElementById('login-password').value;
     var flag = true;
@@ -47,12 +47,13 @@ function login() {
 
 }
 
-function signUp() {
+function signUpB() {
     var firstname = document.getElementById('signUp-firstname').value;
     var lastname = document.getElementById('signUp-lastname').value;
     var email = document.getElementById('signUp-email').value;
     var username = document.getElementById('signUp-username').value;
     var password = document.getElementById('signUp-password').value;
+    
     var flag = true;
     if (firstname.length == 0) {
         document.getElementById("signUp-firstname").style.borderColor = "red";
@@ -75,8 +76,19 @@ function signUp() {
         flag=false;
     }
 
+    let check = /^[A-Za-z]\w{7,14}$/
+    if(!password.match(check)){
+        document.getElementById("signUp-password").style.borderColor = "red";
+        flag=false;
+        alert("Password must be at least 8");
+    }
     if (flag == true) {
         alert("CREATED ACCOUNT\nUsername: " + username + "\nPassword: " + password);
+        return true;
     }
-
+    if (flag == false){
+        console.log("false");
+        alert("FUCK YOU");
+        return false;
+    }
 }

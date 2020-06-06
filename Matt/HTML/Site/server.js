@@ -3,6 +3,9 @@
 "use strict";
 var express = require("express");
 var app = express();
+var session = require('express-session');
+var bodyParser = require('body-parser');
+var path = require('path');
 var questions = [];
 const https = require('https'), fs = require("fs");
 
@@ -17,6 +20,14 @@ app.use(ban);
 app.use("/bootstrap.html", auth);
 var options = { setHeaders: deliverXHTML, key: fs.readFileSync('key.pem'), cert: fs.readFileSync('cert.pem')};
 app.use(express.static("public", options));
+app.use(session({
+	secret: 'secret',
+	resave: true,
+	saveUninitialized: true
+}));
+app.use(bodyParser.urlencoded({extended : true}));
+app.use(bodyParser.json());
+
 https.createServer({
     
     key: fs.readFileSync('key.pem'),
@@ -46,16 +57,35 @@ https.createServer({
   });
   
   app.get('/testhome', function(req, res) {
+      
       res.render('pages/testhome');
   });
 
-  app.get('/questions', function(req,res){
-      res.json()
+  
+  
+  app.get('/result/:userid/:testid/:score',(req,res)=>{
+        const userId = req.params.userid;
+        const testid = req.params.testid;
+        const score = req.params.score;
+        console.log(userId +" "+ testid + " " + score);
+        db.serialize(function(){
+            var stmt = db.prepare("INSERT INTO attempt (userId, testId, score) VALUES(?,?,?)");
+            stmt.run(userId, testid, score);
+            db.each("SELECT userID, testID, score FROM attempt", (err,row)=>{
+                if(err){
+                    console.error(err.message);
+                }
+                console.log(row.userID + "\t" + row.testID + "\t" + row.score);
+            });
+        });
   });
-  
-  
   app.get('/testbubble', function(req,res){
-    res.render('pages/testbubble');
+    if(req.session.loggedin){
+        res.render('pages/testbubble');
+    }
+    else{
+        res.send("You need to be loggedin to view this page");
+    }
   });
   app.get('/data', function(req,res){
     getQuestions(1);
@@ -66,7 +96,39 @@ https.createServer({
   });
   
 
-  
+
+
+app.post('/auth', function(request, response) {
+    
+    
+    var username = request.body.username;
+    var password = request.body.password;
+    console.log(username);
+    console.log(password);
+
+	if (username && password) {
+        db.all("SELECT * FROM user WHERE name = ? AND pw = ? ",[username, password] ,(err,results)=>{
+            if(err){
+                console.error(err.message);
+            }
+            console.log(results.length);
+			if (results.length > 0) {
+				request.session.loggedin = true;
+				request.session.username = username;
+				response.render('pages/homepage');
+			} else {
+				response.send('Incorrect Username and/or Password!');
+			}			
+			response.end();
+        });
+    }
+	 else {
+		response.send('Please enter Username and Password!');
+		response.end();
+	}
+});
+
+app.post('/register');
 
 
 // Make the URL lower case.
@@ -90,7 +152,7 @@ function ban(req, res, next) {
 
 // Redirect the browser to the login page.
 function auth(req, res, next) {
-    console.log("Doing some dumb shit");
+    
     res.redirect("/pagetemplate.html");
 }
 
@@ -142,38 +204,36 @@ async function initThis(){
         
             db.run("DROP TABLE IF EXISTS user");
             console.log("why");
-            db.run("CREATE TABLE user (id INTEGER PRIMARY KEY autoincrement, name TEXT NOT NULL, pw TEXT NOT NULL)");
+            db.run("CREATE TABLE user ( name TEXT PRIMARY KEY, pw TEXT NOT NULL)");
             console.log("why 2");
             var stmt = db.prepare("INSERT INTO user(name, pw) VALUES(?,?)");
-            for (var i =0; i<10;i++){
-                stmt.run(generateName(), generateName());
-            }
+            stmt.run("tias", "m");
             stmt.finalize();
-            db.each("SELECT id, name, pw FROM user", function(err, row){
+            db.each("SELECT name, pw FROM user", function(err, row){
                 if(err){
                     console.log(err.message);
                 }
-                console.log("User id: " +row.id, row.pw);
+                console.log("User id: " +row.name, row.pw);
             });
         db.serialize( async function(){
             db.run("DROP TABLE IF EXISTS test");
             db.run("DROP TABLE IF EXISTS questions");
             db.run("DROP TABLE IF EXISTS attempt");
             db.run("CREATE TABLE test(ID INTEGER PRIMARY KEY autoincrement, setby INT NOT NULL, FOREIGN KEY(setby) REFERENCES user(id))")
-             db.run("CREATE TABLE questions (id INTEGER PRIMARY KEY autoincrement, question TEXT, answer1 TEXT, answer2 TEXT, answer3 TEXT, correct INT, test INT)");
-             db.run("CREATE TABLE attempt (userID INTEGER NOT NULL, testID INTEGER NOT NULL, score INTEGER NOT NULL, FOREIGN KEY(userID) REFERENCES user(id), FOREIGN KEY (testID) REFERENCES test(ID), PRIMARY KEY(userID, testID))");
+             db.run("CREATE TABLE questions (id INTEGER PRIMARY KEY autoincrement, question TEXT, answer1 TEXT, answer2 TEXT, answer3 TEXT, correct TEXT, test INT)");
+             db.run("CREATE TABLE attempt (id INTEGER PRIMARY KEY autoincrement, userID TEXT, testID INTEGER NOT NULL, score INTEGER NOT NULL, FOREIGN KEY(userID) REFERENCES user(name), FOREIGN KEY (testID) REFERENCES test(ID))");
             
             var stmt = db.prepare("INSERT INTO test (setby) VALUES(?)");
             stmt.run(1);
             stmt.finalize;
             var stmt = db.prepare("INSERT INTO questions (question, answer1,answer2,answer3,correct, test) VALUES(?,?,?,?,?,?)");
             
-            stmt.run("What is the complexity of a bubble sort?", "hi", "no", "yes", 1, 1);
-            stmt.run("What step is comparing the second and third values in a bubblesort?","hi", "no", "yes", 2, 1);
-            stmt.run("placeholder", "hi", "no", "yes",2, 1);
+            stmt.run("What is the complexity of a bubble sort?", "hi", "no", "yes", "a", 1);
+            stmt.run("What step is comparing the second and third values in a bubblesort?","hi", "no", "yes", "a", 1);
+            stmt.run("placeholder", "hi", "no", "yes","b", 1);
             stmt.finalize();
-            var stmt = db.prepare("INSERT INTO attempt VALUES(?,?,?)");
-            stmt.run(1,1,1);
+            var stmt = db.prepare("INSERT INTO attempt (userID, testID, score) VALUES(?,?,?)");
+            stmt.run(1,"tias",1);
             stmt.finalize;
             console.log("hi");
             db.each("SELECT id, question, answer1, test FROM questions", (err,row)=>{
