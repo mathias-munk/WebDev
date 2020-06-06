@@ -23,6 +23,11 @@
     color: #fff;
 }
 
+.page-header {
+    text-align: center;
+    display: block;
+}
+
 .page-title {
     margin-top: 10px;
 }
@@ -83,7 +88,11 @@
     text-decoration: none;
 }
 
-
+.report-text-link {
+    color: #6FBEEC;
+    font-style: italic;
+    text-decoration: none;
+}
 
 html {
   position: relative;
@@ -217,10 +226,9 @@ https://bootsnipp.com/snippets/kM4Q
 
 .logo {
     background-color: #f0f5fa;
-    vertical-align: middle;
-    display: inline-block;
     width: 80px;
     height: 70px;
+    float: left;
 }
 
 .title {

@@ -5,7 +5,6 @@ var express = require("express");
 var app = express();
 var questions = [];
 const https = require('https'), fs = require("fs");
-
 var banned = [];
 banUpperCase("./Public/", "");
 

@@ -1,25 +1,35 @@
 "use strict";
 
-$(document).ready(function(){
-  // Add to all <a> tags
-  $("a").on('click', function(event) {
+document.addEventListener('DOMContentLoaded', () => {
+    // Add waypoints to all sections on the page
+	addWaypoint('#HTML-section', -100);
+	addWaypoint('#CSS-section', 100);
+	addWaypoint('#JS-section', -100);
+	addWaypoint('#PNG-section', 100);
+	addWaypoint('#SVG-section', -100);
+	addWaypoint('#server-section', 100);
+	addWaypoint('#database-section', -100);
+	addWaypoint('#dynamic-section', 100);
 
-    // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "") {
-      // Prevent default anchor click behavior
-      event.preventDefault();
+})
 
-      // Store hash
-      var hash = this.hash;
+// Creates a waypoint which activates when the user scrolls down
+// to the element
+function addWaypoint(target, startPos) {
+    let waypoint = new Waypoint({
+      element: document.querySelector(target),
+      handler: function() {
+            anime({
+                targets: target,
+                duration: 3000,
+                easing: 'easeOutExpo',
+                translateX: [startPos, 0],
+                opacity: [0, 1],
+                delay: 200,
+            })
 
-      // jQuery animate() method
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 500, function(){
-
-        // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = hash;
-      });
-    }
-  });
-});
+            this.destroy();
+      },
+        offset: '100%',
+    })
+}

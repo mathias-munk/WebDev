@@ -14,7 +14,7 @@ function receive(response){
 getData();
 // Immediately invoked function expression
 (
-  
+
   setTimeout(function(){
   // Functions
   
