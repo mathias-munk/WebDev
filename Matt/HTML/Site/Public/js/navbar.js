@@ -42,8 +42,9 @@ function loginA() {
         flag = false;
     }
     if (flag == true) {
-        alert("LOGGED IN\nUsername: " + username + "\nPassword: " + password);
+        return true;
     }
+    return false;
 
 }
 

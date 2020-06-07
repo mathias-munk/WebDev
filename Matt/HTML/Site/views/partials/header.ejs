@@ -647,7 +647,7 @@
                        aria-haspopup="true" aria-expanded="false">Login</a>
                     <ul class="dropdown-menu login-menu">
                         <li>
-                            <form method = "POST" action = "auth" id ="navloginform" onsubmit = "return login()" name = "loginform">
+                            <form method = "POST" action = "auth" id ="navloginform" onsubmit = "return loginA()" name = "loginform">
                             <li class="input-group login-input">
                                 <input type="text" class="form-control" id="login-username"
                                     placeholder="Username" name = "username"/>
@@ -686,13 +686,13 @@
                                         placeholder="Email"/>
                                 </li>
                                 <li role="separator" class="divider"></li>
-                                <li class="input-group">
+                                <li class="input-group login-input">
                                     <input type="text" class="form-control" id="signUp-username"
-                                        placeholder="Username"/>
+                                        placeholder="Choose Username" name = "regusername"/>
                                 </li>
                                 <li class="input-group login-input">
                                     <input type="password" class="form-control" data-toggle="password"
-                                        name = "password" id="signUp-password" placeholder="Password"/>
+                                        name = "regpassword" id="signUp-password" placeholder="Choose Password"/>
                                 </li>
                                 <li>
                                     <button type="submit" class = "btn-primary login-button"

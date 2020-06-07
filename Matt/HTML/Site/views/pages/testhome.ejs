@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -10,6 +11,7 @@
 </header>
 
 <div class="container">
+    
     <div class="page-header page-title">
         <h1 class="title" id="page-title">Test Yourself!</h1>
     </div>
@@ -33,18 +35,21 @@
                         <th class="text-center">Score</th>
                         <th class="text-center">Date Completed</th>
                     </tr>
-                    <tr>
-                        <td>8/10</td>
-                        <td class="text-right"> 11:15 20/05/2020 </td>
-                    </tr>
-                    <tr>
-                        <td>9/10</td>
-                        <td class="text-right"> 12:20 20/05/2020 </td>
-                    </tr>
-                    <tr>
-                        <td>10/10</td>
-                        <td class="text-right"> 14:10 21/05/2020 </td>
-                    </tr>
+                    <% if(typeof scores != "undefined"){ %>
+                        <% var count = 0 %>
+                         <% scores.forEach(function(score){ %>
+                         <% if (score.testID == 1) {%>
+                            <% count = count + 1 %>
+                            <tr>
+                                <td><%=score.score %></td>  
+                                <td class ="text-right"><%= score.timeCompleted %></td>
+                            </tr>
+                            <% }%>
+                            <% }); %>
+                        <% if(count == 0) { %>
+                            <td colspan="2" class="text-left"> You have no previous attempts</td>  
+                        <% } %>
+                    <%} %>
                     </tbody>
                 </table>
             </div>
@@ -63,18 +68,23 @@
                     <th class="text-center">Score</th>
                     <th class="text-center">Date Completed</th>
                 </tr>
-                <tr>
-                    <td>8/10</td>
-                    <td class="text-right"> 11:15 20/05/2020 </td>
-                </tr>
-                <tr>
-                    <td>9/10</td>
-                    <td class="text-right"> 12:20 20/05/2020 </td>
-                </tr>
-                <tr>
-                    <td>10/10</td>
-                    <td class="text-right"> 14:10 21/05/2020 </td>
-                </tr>
+                <% if(typeof scores != "undefined"){ %>
+                    <% var count = 0 %>
+                     <% scores.forEach(function(score){ %>
+                     <% if (score.testID == 2) {%>
+                        <% count = count + 1 %>
+                        <tr>
+                            <td><%=score.score %></td>  
+                            <td class ="text-right"><%= score.timeCompleted %></td>
+                        </tr>
+                        <% }%>
+                        <% }); %>
+                    <% if(count == 0) { %>
+                        <td colspan="2" class="text-left"> You have no previous attempts</td>  
+                    <% } %>
+                <%} %>
+                
+                
                 </tbody>
             </table>
             </div>
@@ -93,9 +103,21 @@
                     <th class="text-center">Score</th>
                     <th class="text-center">Date Completed</th>
                 </tr>
-                <tr>
-                    <td colspan="2" class="text-left"><b>Log in</b> to see previous test attempts</td>
-                </tr>
+                <% if(typeof scores != "undefined"){ %>
+                    <% var count = 0 %>
+                     <% scores.forEach(function(score){ %>
+                     <% if (score.testID == 3) {%>
+                        <% count = count + 1 %>
+                        <tr>
+                            <td><%=score.score %></td>  
+                            <td class ="text-right"><%= score.timeCompleted %></td>
+                        </tr>
+                        <% }%>
+                        <% }); %>
+                    <% if(count == 0) { %>
+                        <td colspan="2" class="text-left"> You have no previous attempts</td>  
+                    <% } %>
+                <%} %>
                 </tbody>
             </table>
             </div>

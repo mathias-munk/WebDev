@@ -125,7 +125,7 @@ getData();
 
     // show number of correct answers out of total
     resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
-    fetch("result/1/1/" + numCorrect);
+    fetch("result/1/" + numCorrect);
   }
 
   function showSlide(n) {
