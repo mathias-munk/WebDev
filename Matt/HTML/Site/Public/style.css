@@ -4,7 +4,6 @@
     padding-top: 20px;
 }
 
-
 #jumbo {
     background: #6d858f;
     padding: 20px;
@@ -23,20 +22,24 @@
     color: #fff;
 }
 
-.page-header {
-    text-align: center;
-    display: block;
+.form-container {
+    width: 50%;
+    display: inline-block;
+    text-align: left;
 }
+
 
 .page-title {
     margin-top: 10px;
+    text-align: center;
+    display: block;
 }
 
 #page-title {
     color:white;
     letter-spacing: 1.5px;
-    font-size: 55px;
     font-family: 'Montserrat', sans-serif;
+    font-size: 45px;
 }
 
 #page-text {
@@ -224,6 +227,16 @@ https://bootsnipp.com/snippets/kM4Q
     text-align: center;
 }
 
+.login-page-row {
+    margin-top: 12px;
+}
+
+.login-page-button {
+    margin-top: 15px;
+    padding: 5px;
+    margin-bottom: 30px;
+}
+
 .logo {
     background-color: #f0f5fa;
     width: 80px;
@@ -234,7 +247,6 @@ https://bootsnipp.com/snippets/kM4Q
 .title {
     color: #2E86C1;
     text-align: center;
-    font-size: 60px;
     text-style: bold;
     font-family: 'Montserrat', sans-serif;
 }

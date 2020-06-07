@@ -56,9 +56,16 @@ https.createServer({
   });
   
   app.get('/testhome', function(req, res) {
-      
       res.render('pages/testhome');
   });
+
+  app.get('/login', function(req, res) {
+        res.render('pages/login');
+  });
+
+  app.get('/signup', function(req, res) {
+      res.render('pages/signup');
+});
 
   
   

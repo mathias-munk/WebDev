@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <%- include('../partials/head') %>
+</head>
+<body id="grad">
+
+<header>
+    <%- include('../partials/header') %>
+</header>
+
+<div class="container" style="text-align:center">
+    <div class="page-header page-title">
+        <h2 id="page-title">Create Account</h2>
+    </div>
+    <div class = "form-container">
+        <div class="row">
+            <h4>First Name:</h4>
+        </div>
+        <div class="row">
+            <input type="text" class="form-control" id="login-firstname"
+                    placeholder="First Name" name = "firstname"/>
+        </div>
+        <div class="row login-page-row">
+            <h4>Last Name:</h4>
+        </div>
+        <div class="row">
+            <input type="text" class="form-control" id="login-lastname"
+                        placeholder="Last Name" name = "lastname"/>
+        </div>
+        <div class="row">
+            <h4>Email:</h4>
+        </div>
+        <div class="row">
+            <input type="text" class="form-control" id="login-email"
+                    placeholder="example123@yahoo.com" name = "email"/>
+        </div>
+        <div class="row login-page-row">
+            <h4>Enter Username:</h4>
+        </div>
+        <div class="row">
+            <input type="text" class="form-control" id="login-username"
+                    placeholder="Username" name = "username"/>
+        </div>
+        <div class="row login-page-row">
+            <h4>Enter Password:</h4>
+        </div>
+        <div class="row">
+            <input type="text" class="form-control" id="login-password1"
+                        placeholder="Password" name = "password1"/>
+        </div>
+        <div class="row login-page-row">
+            <h4>Confirm Password:</h4>
+        </div>
+        <div class="row">
+            <input type="text" class="form-control" id="login-password2"
+                        placeholder="Password" name = "password2"/>
+        </div>
+
+
+
+        <div class="row login-page-row">
+            <form action="/login">
+                <div class = "col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                    <button type="submit" class="btn-default login-button login-page-button" id="loginpage">Already have an account?</button></a>
+                </div>
+            </form>
+            <form method = "POST" action= "register" onsubmit=" return signUpB()" id ="headerregisterform" name = "registerForm">
+                <div class = "col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                    <button type="submit" class="btn-primary login-button login-page-button" id="login">Create Account</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <%- include('../partials/footer') %>
+</footer>
+
+</body>
+</html>

@@ -5,8 +5,8 @@ function animatePath(path) {
     anime({
       targets: path,
       fill: '#f0f5fa',
-      easing: 'linear',
-      duration: 2000,
+      easing: 'easeInOutSine',
+      duration: 1000,
       direction: 'alternate',
     });
 }
@@ -20,8 +20,4 @@ $(document).ready(function() {
     }
     console.log(paths.length);
     paths.forEach(path => animatePath(path));
-    document.getElementById("webpage-title").addEventListener('mouseover', function() {
-        paths.forEach(path => animatePath(path)) }
-    );
-
 });
