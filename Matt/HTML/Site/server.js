@@ -28,6 +28,7 @@ app.use(session({
     
 }));
 
+
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 app.use(helmet());
@@ -78,7 +79,7 @@ https.createServer({
   });
 
   app.get('/signup', function(req, res) {
-      res.render('pages/signup');
+      res.render('pages/signup', {login: req.session.loggedin});
   });
 
   
