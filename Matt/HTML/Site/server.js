@@ -59,7 +59,6 @@ https.createServer({
       res.render('pages/learnquick', {login: req.session.loggedin});
   });
 
-    
   app.get('/testhome', async(req, res) =>{
       console.log(req.session.username);
       db.all("SELECT * FROM attempt WHERE userID = ? ",[req.session.username] ,(err,results)=>{
@@ -79,12 +78,16 @@ https.createServer({
   });
 
   app.get('/signup', function(req, res) {
-      res.render('pages/signup',{login: req.session.loggedin});
-});
+      res.render('pages/signup');
+  });
 
   
-  
-  app.get('/result/:testid/:score',(req,res)=>{
+  app.get('/a', function(req,res){
+      res.render('pages/loginredirect');
+  });
+
+
+app.get('/result/:testid/:score',(req,res)=>{
     var date = new Date();
     var TIMESTAMP = date.toISOString();
         const userId = req.params.userid;
@@ -102,18 +105,19 @@ https.createServer({
             });
         });
   });
+
   app.get('/testbubble', function(req,res){
     if(req.session.loggedin){
         res.render('pages/testbubble', {login: req.session.loggedin});
     }
     else{
-        
         backurl = req.header('Referer') || '/';
         console.log(backurl);
         console.log("trying the redirect");
         res.redirect('/login');
     }
   });
+
   app.get('/data', function(req,res){
     getQuestions(1);
     setTimeout(function(){
@@ -363,4 +367,7 @@ function getQuestions(testID){
     console.log(questions.length + "bottom of test q's");
 }
 
+function capFirst(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
