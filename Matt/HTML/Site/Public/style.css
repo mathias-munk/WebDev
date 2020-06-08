@@ -45,6 +45,7 @@
     width: 50%;
     display: inline-block;
     text-align: left;
+    margin-bottom: 40px;
 }
 
 
@@ -270,7 +271,7 @@ https://bootsnipp.com/snippets/kM4Q
 .login-page-button {
     margin-top: 15px;
     padding: 5px;
-    margin-bottom: 30px;
+    margin-bottom: 5px;
 }
 
 .logo {
