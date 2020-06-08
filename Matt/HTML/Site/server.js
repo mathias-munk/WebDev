@@ -28,6 +28,7 @@ app.use(session({
     
 }));
 
+
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 app.use(helmet());
@@ -43,20 +44,20 @@ https.createServer({
   app.set('view engine', 'ejs');
 
   app.get('/', function(req, res) {
-      res.render('pages/homepage',{login: req.session.loggedin});
+      res.render('pages/homepage',{login: req.session.loggedin, username:req.session.username});
   });
   app.get('/learnhome', function(req, res) {
-      res.render('pages/learnhome',{login: req.session.loggedin});
+      res.render('pages/learnhome',{login: req.session.loggedin, username:req.session.username});
   });
   app.get('/learnbubble', function(req, res) {
-      res.render('pages/learnbubble', {login: req.session.loggedin});
+      res.render('pages/learnbubble', {login: req.session.loggedin, username:req.session.username});
   });
   app.get('/learnmerge', function(req, res) {
-      res.render('pages/learnmerge', {login: req.session.loggedin});
+      res.render('pages/learnmerge', {login: req.session.loggedin, username:req.session.username});
   });
   
   app.get('/learnquick', function(req, res) {
-      res.render('pages/learnquick', {login: req.session.loggedin});
+      res.render('pages/learnquick', {login: req.session.loggedin, username:req.session.username});
   });
 
   app.get('/testhome', async(req, res) =>{
@@ -68,23 +69,20 @@ https.createServer({
         console.log(results.length);
         console.log(req.session.loggedin);
         console.log(typeof req.session.loggedin);
-        res.render('pages/testhome', {login: req.session.loggedin,scores: results});
+        res.render('pages/testhome', {login: req.session.loggedin,username:req.session.username,scores: results});
         res.end();
     });
   });
 
   app.get('/login', function(req, res) {
-        res.render('pages/login', {login: req.session.loggedin});
+        res.render('pages/login', {login: req.session.loggedin, username:req.session.username});
   });
 
   app.get('/signup', function(req, res) {
-      res.render('pages/signup');
+      res.render('pages/signup', {login: req.session.loggedin, username:req.session.username});
   });
 
-  
-  app.get('/a', function(req,res){
-      res.render('pages/loginredirect');
-  });
+
 
 
 app.get('/result/:testid/:score',(req,res)=>{
@@ -108,7 +106,7 @@ app.get('/result/:testid/:score',(req,res)=>{
 
   app.get('/testbubble', function(req,res){
     if(req.session.loggedin){
-        res.render('pages/testbubble', {login: req.session.loggedin});
+        res.render('pages/testbubble', {login: req.session.loggedin, username:req.session.username});
     }
     else{
         backurl = req.header('Referer') || '/';
@@ -127,11 +125,11 @@ app.get('/result/:testid/:score',(req,res)=>{
   });
 
   app.get('/report', function(req,res){
-        res.render('pages/report',{login: req.session.loggedin});
+        res.render('pages/report',{login: req.session.loggedin, username:req.session.username});
   });
   
   app.get('/loginredirect', function(req,res){
-        res.render('pages/login',{login: req.session.loggedin});
+        res.render('pages/login',{login: req.session.loggedin, username:req.session.username});
   });
 
 app.use('/auth', function(request, response) {
@@ -186,12 +184,12 @@ app.post('/register', function(request, response){
             console.log(results.length);
 			if (results.length > 0) {
 				
-				response.render('pages/login',{login: req.session.loggedin});
+				response.render('pages/login',{login: req.session.loggedin, username:req.session.username});
 			} else {
                 db.run("INSERT INTO user (name, pw) VALUES(?,?)",[username, password]);
                 request.session.username = username;
                 request.session.loggedin =  true;
-                response.render('pages/learnhome',{login: req.session.loggedin});
+                response.render('pages/learnhome',{login: req.session.loggedin, username:req.session.username});
 			}			
 			response.end();
         });
@@ -200,10 +198,11 @@ app.post('/register', function(request, response){
         response.send("error receiving username and password");
     }
 });
-app.post('/logout', function(request,response){
-    req.session.loggedin = false;
-    req.session.username = "";
-    res.render('/', {login: req.session.loggedin});
+app.get('/logout', function(request,response){
+    
+    request.session.loggedin = false;
+    request.session.username = "";
+    response.redirect('/');
 });
 
 // Make the URL lower case.
