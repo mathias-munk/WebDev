@@ -3,6 +3,7 @@
 <head>
     <%- include('../partials/head') %>
 </head>
+<script src="js/navbar.js" async="async"></script>
 <body id="grad">
 
 <header>
@@ -13,63 +14,57 @@
     <div class="page-header page-title">
         <h2 id="page-title">Create Account</h2>
     </div>
+     
     <div class = "form-container">
+        <form method = "POST" action= "register" onsubmit=" return signUpA()" id ="registerform" name = "registerForm">
+        
+        
         <div class="row">
             <h4>First Name:</h4>
         </div>
         <div class="row">
-            <input type="text" class="form-control" id="login-firstname"
+            <input type="text" class="form-control" id="register-firstname"
                     placeholder="First Name" name = "firstname"/>
         </div>
         <div class="row login-page-row">
             <h4>Last Name:</h4>
         </div>
         <div class="row">
-            <input type="text" class="form-control" id="login-lastname"
+            <input type="text" class="form-control" id="register-lastname"
                         placeholder="Last Name" name = "lastname"/>
         </div>
         <div class="row">
             <h4>Email:</h4>
         </div>
         <div class="row">
-            <input type="text" class="form-control" id="login-email"
+            <input type="text" class="form-control" id="register-email"
                     placeholder="example123@yahoo.com" name = "email"/>
         </div>
         <div class="row login-page-row">
             <h4>Enter Username:</h4>
         </div>
         <div class="row">
-            <input type="text" class="form-control" id="login-username"
-                    placeholder="Username" name = "username"/>
+            <input type="text" class="form-control" id="register-username"
+                    placeholder="Username" name = "username2"/>
         </div>
         <div class="row login-page-row">
             <h4>Enter Password:</h4>
         </div>
         <div class="row">
-            <input type="text" class="form-control" id="login-password1"
-                        placeholder="Password" name = "password1"/>
-        </div>
-        <div class="row login-page-row">
-            <h4>Confirm Password:</h4>
-        </div>
-        <div class="row">
-            <input type="text" class="form-control" id="login-password2"
+            <input type="text" class="form-control" id="register-password"
                         placeholder="Password" name = "password2"/>
         </div>
-
-
-
+        <div class = "col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <button type="submit" class="btn-primary login-button login-page-button" id="create">Create Account</button>
+        </div>
+    </form>
         <div class="row login-page-row">
             <form action="/login">
                 <div class = "col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                     <button type="submit" class="btn-default login-button login-page-button" id="loginpage">Already have an account?</button></a>
                 </div>
             </form>
-            <form method = "POST" action= "register" onsubmit=" return signUpB()" id ="headerregisterform" name = "registerForm">
-                <div class = "col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                    <button type="submit" class="btn-primary login-button login-page-button" id="login">Create Account</button>
-                </div>
-            </form>
+            
         </div>
     </div>
 </div>

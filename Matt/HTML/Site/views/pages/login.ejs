@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<script src="js/navbar.js" async="async"></script>
 <head>
     <%- include('../partials/head') %>
 </head>
@@ -8,12 +9,14 @@
 <header>
     <%- include('../partials/header') %>
 </header>
-
+=
 <div class="container" style="text-align:center">
     <div class="page-header page-title">
         <h2 id="page-title">Login</h2>
     </div>
     <div class = "form-container">
+        <form method = "POST" action = "auth" id ="navloginform" name = "loginform">
+            
             <div class="row">
                 <h4>Enter Username:</h4>
             </div>
@@ -28,17 +31,18 @@
                 <input type="text" class="form-control" id="login-password"
                             placeholder="Password" name = "password"/>
             </div>
+            <div class = "col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                <button type="submit" class="btn-primary login-button login-page-button" id="login">Login</button>
+            </div>
+        </form>
             <div class="row login-page-row">
                 <form action="/signup">
                     <div class = "col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                         <button type="submit" class="btn-default login-button login-page-button" id="createaccount">Create New Account</button></a>
                     </div>
                 </form>
-                 <form method = "POST" action = "auth" id ="navloginform" onsubmit = "return login()" name = "loginform">
-                <div class = "col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                    <button type="submit" class="btn-primary login-button login-page-button" id="login">Login</button>
-                </div>
-                </form>
+                 
+                
             </div>
 
     </div>

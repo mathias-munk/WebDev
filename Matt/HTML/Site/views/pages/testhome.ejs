@@ -35,6 +35,9 @@
                         <th class="text-center">Score</th>
                         <th class="text-center">Date Completed</th>
                     </tr>
+                    <% if (login == false){ %>
+                        <% console.log("hi") %>
+                    <% } %>  
                     <% if(typeof scores != "undefined"){ %>
                         <% var count = 0 %>
                          <% scores.forEach(function(score){ %>

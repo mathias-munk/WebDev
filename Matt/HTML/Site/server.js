@@ -7,6 +7,7 @@ var session = require('express-session');
 var bodyParser = require('body-parser');
 var path = require('path');
 var questions = [];
+const helmet = require('helmet');
 const https = require('https'), fs = require("fs");
 var banned = [];
 var backurl;
@@ -23,11 +24,13 @@ app.use(express.static("public", options));
 app.use(session({
 	secret: 'secret',
 	resave: true,
-	saveUninitialized: true
+    saveUninitialized: true,
+    
 }));
+
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
-
+app.use(helmet());
 https.createServer({
     
     key: fs.readFileSync('key.pem'),
@@ -40,20 +43,20 @@ https.createServer({
   app.set('view engine', 'ejs');
 
   app.get('/', function(req, res) {
-      res.render('pages/homepage');
+      res.render('pages/homepage',{login: req.session.loggedin});
   });
   app.get('/learnhome', function(req, res) {
-      res.render('pages/learnhome');
+      res.render('pages/learnhome',{login: req.session.loggedin});
   });
   app.get('/learnbubble', function(req, res) {
-      res.render('pages/learnbubble');
+      res.render('pages/learnbubble', {login: req.session.loggedin});
   });
   app.get('/learnmerge', function(req, res) {
-      res.render('pages/learnmerge');
+      res.render('pages/learnmerge', {login: req.session.loggedin});
   });
   
   app.get('/learnquick', function(req, res) {
-      res.render('pages/learnquick');
+      res.render('pages/learnquick', {login: req.session.loggedin});
   });
 
   app.get('/testhome', async(req, res) =>{
@@ -63,13 +66,15 @@ https.createServer({
             console.error(err.message);
         }
         console.log(results.length);
-        res.render('pages/testhome', {scores: results});
+        console.log(req.session.loggedin);
+        console.log(typeof req.session.loggedin);
+        res.render('pages/testhome', {login: req.session.loggedin,scores: results});
         res.end();
     });
   });
 
   app.get('/login', function(req, res) {
-        res.render('pages/login');
+        res.render('pages/login', {login: req.session.loggedin});
   });
 
   app.get('/signup', function(req, res) {
@@ -81,7 +86,8 @@ https.createServer({
       res.render('pages/loginredirect');
   });
 
-  app.get('/result/:testid/:score',(req,res)=>{
+
+app.get('/result/:testid/:score',(req,res)=>{
     var date = new Date();
     var TIMESTAMP = date.toISOString();
         const userId = req.params.userid;
@@ -105,11 +111,10 @@ https.createServer({
         res.render('pages/testbubble');
     }
     else{
-        
         backurl = req.header('Referer') || '/';
         console.log(backurl);
         console.log("trying the redirect");
-        res.redirect('/loginredirect');
+        res.redirect('/login');
     }
   });
 
@@ -122,13 +127,12 @@ https.createServer({
   });
 
   app.get('/report', function(req,res){
-        res.render('pages/report');
+        res.render('pages/report',{login: req.session.loggedin});
   });
   
   app.get('/loginredirect', function(req,res){
-        res.render('pages/loginredirect');
+        res.render('pages/login',{login: req.session.loggedin});
   });
-
 
 app.use('/auth', function(request, response) {
     
@@ -136,7 +140,7 @@ app.use('/auth', function(request, response) {
     var username = request.body.username;
     var password = request.body.password;
     
-
+    console.log(username);
 	if (username && password) {
         db.all("SELECT * FROM user WHERE name = ? AND pw = ? ",[username, password] ,(err,results)=>{
             if(err){
@@ -145,8 +149,14 @@ app.use('/auth', function(request, response) {
             console.log(results.length);
 			if (results.length > 0) {
 				request.session.loggedin = true;
-				request.session.username = username;
-				response.redirect('/');
+                request.session.username = username;
+                if(backurl){
+                    response.redirect(backurl);
+                }
+                else{
+                    response.redirect('/');  
+                }
+				
 			} else {
 				response.redirect('/loginredirect')
 			}			
@@ -154,18 +164,20 @@ app.use('/auth', function(request, response) {
         });
     }
 	 else {
-		response.send('Please enter Username and Password!');
-		response.end();
+		response.redirect('/login')
 	}
 });
 
 app.post('/register', function(request, response){
     var username = request.body.regusername;
     var password = request.body.regpassword;
-    console.log("trying to do register");
-    console.log(username);
-    console.log(password);
     
+    if(request.body.regusername == null){
+        
+        username = request.body.username2;
+        password = request.body.password2;
+    }
+
     if(username && password){
         db.all("SELECT * FROM user WHERE name = ? AND pw = ? ",[username, password] ,(err,results)=>{
             if(err){
@@ -174,12 +186,12 @@ app.post('/register', function(request, response){
             console.log(results.length);
 			if (results.length > 0) {
 				
-				response.render('pages/login');
+				response.render('pages/login',{login: req.session.loggedin});
 			} else {
                 db.run("INSERT INTO user (name, pw) VALUES(?,?)",[username, password]);
                 request.session.username = username;
                 request.session.loggedin =  true;
-                response.render('pages/learnhome');
+                response.render('pages/learnhome',{login: req.session.loggedin});
 			}			
 			response.end();
         });
@@ -188,7 +200,11 @@ app.post('/register', function(request, response){
         response.send("error receiving username and password");
     }
 });
-
+app.post('/logout', function(request,response){
+    req.session.loggedin = false;
+    req.session.username = "";
+    res.render('/', {login: req.session.loggedin});
+});
 
 // Make the URL lower case.
 function lower(req, res, next) {
@@ -354,3 +370,4 @@ function getQuestions(testID){
 function capFirst(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
