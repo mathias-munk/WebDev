@@ -17,6 +17,10 @@
     text-align: center;
 }
 
+.waypoint {
+    visibility: hidden;
+}
+
 .path {
   animation: dash 50s linear alternate infinite;
 }
@@ -31,6 +35,16 @@
     margin-top: 20px;
     width: 60%;
     height: auto;
+}
+
+.video-placeholder {
+    display: inline-block;
+}
+
+.video-caption {
+    text-align: center;
+    color: #E0E0E2;
+    font-style: italic;
 }
 
 
@@ -62,8 +76,9 @@
     font-size: 45px;
 }
 
-#page-text {
+.page-text {
     padding-bottom: 15px;
+    line-height: 1.75;
 }
 
 .page-text-link {
@@ -111,7 +126,6 @@
 .report-text {
     padding: 1.5rem;
     letter-spacing: 0.5px;
-    line-height: 25px;
 }
 
 .report-text-spacing {
