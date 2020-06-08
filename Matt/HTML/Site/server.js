@@ -108,7 +108,7 @@ app.get('/result/:testid/:score',(req,res)=>{
 
   app.get('/testbubble', function(req,res){
     if(req.session.loggedin){
-        res.render('pages/testbubble');
+        res.render('pages/testbubble', {login: req.session.loggedin});
     }
     else{
         backurl = req.header('Referer') || '/';
