@@ -1,7 +1,7 @@
 
 var sqlite3 = require('sqlite3').verbose();
 let db;
-var path = "./testingdb";
+var path = "./Config/testingdb";
 console.log("inside initthis");
 
 
@@ -15,7 +15,7 @@ async function initThis(){
             db.run("CREATE TABLE user ( name TEXT PRIMARY KEY, pw TEXT NOT NULL)");
             console.log("why 2");
             var stmt = db.prepare("INSERT INTO user(name, pw) VALUES(?,?)");
-            stmt.run("tiasssssss", "m");
+            stmt.run("tias", "m");
             stmt.finalize();
             db.each("SELECT name, pw FROM user", function(err, row){
                 if(err){
@@ -38,9 +38,22 @@ async function initThis(){
             stmt.finalize;
             var stmt = db.prepare("INSERT INTO questions (question, answer1,answer2,answer3,correct, test) VALUES(?,?,?,?,?,?)");
             
-            stmt.run("What is the complexity of a bubble sort?", "hi", "no", "yes", "a", 1);
-            stmt.run("What step is comparing the second and third values in a bubblesort?","hi", "no", "yes", "a", 1);
-            stmt.run("placeholder", "hi", "no", "yes","b", 1);
+            stmt.run("What is the complexity of a bubble sort?", "O(n)", "O(n^2)", "O(log(n))", "b", 1);
+            stmt.run("What is the first step of a bubble sort?","Compare i to i +1", "add 1 to i", "Loop", "a", 1);
+            stmt.run("When does a bubble sorting algorithm finish", "when the list is fully sorted", "After 7 steps", "After 5 steps","a", 1);
+            stmt.run("What is another name for the bubble sort", "thinking sort", "blinking sort", "sinking sort","c", 1);
+            stmt.run("A bubblesort is made up of comparisons and what?", "floating", "swap", "popping","b", 1);
+            stmt.run("What is the complexity of a merge sort?", "O(n)", "O(n^2)", "O(nlog(n))", "c", 2);
+            stmt.run("Who invented the merge sort", "John Van Neumann", "John Van Bluemann", "John Van Pooman","a", 2);
+            stmt.run("Which of these isn't a type of merge sort", "top-down", "bottom-up", "left-right","c", 2);
+            stmt.run("What storage type initially made use of merge sort?", "Hard Disk", "Solid State Drive", "Magnetic tape","c", 2);
+            stmt.run("What type of sort is a merge sort?", "Erratic", "Unstable", "Stable","c", 2);
+            stmt.run("What is the complexity of a merge sort?", "O(n)", "O(n^2)", "O(nlog(n))", "b", 3);
+            stmt.run("Who invented the quick sort", "John Van Neumann", "Tony Hoare", "John Van Pooman","b", 3);
+            stmt.run("What is the name of the crucial part of the quick sort", "pivot", "twist", "comparison","a", 3);
+            stmt.run("What type of algorithm is a quick sort?", "Divide and Conquer", "Invade and Pillage", "Efficient","a", 3);
+            stmt.run("What type of sort is a quick sort?", "Comparison", "Unstable", "Stable","a", 3);
+
             stmt.finalize();
             var stmt = db.prepare("INSERT INTO attempt (userID, testID, score, timeCompleted) VALUES(?,?,?, ?)");
             stmt.run("tias",1,1, TIMESTAMP);
@@ -63,7 +76,7 @@ async function initThis(){
         
         });
    
-        
+        db.close;
 }
 
 
@@ -73,36 +86,10 @@ function close(){
     db.close;
 }
 
-function getQuestions(testID){
-    let sql = 'SELECT question, answer1, answer2, answer3, correct FROM questions WHERE test = ?'
-    questions = [];
-    db.serialize(function(){
 
-    
-     db.all(sql, [testID], (err, rows) =>{
-        if(err){
-            throw err;
-        }
-        rows.forEach(row=>
-            questions.push({
-                'question': row.question,
-                'answers':{
-                    a: row.answer1,
-                    b: row.answer2, 
-                    c: row.answer3,
-                },
-                'correctAnswer': row.correct
-            })
-            )
-          
-        console.log(questions.length);
-    });
-    });
-    console.log(questions.length + "bottom of test q's");
-}
 
 module.exports = {
-    getQuestions,
+    
     initThis,
     close
 };

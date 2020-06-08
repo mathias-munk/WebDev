@@ -35,8 +35,8 @@
                         <th class="text-center">Score</th>
                         <th class="text-center">Date Completed</th>
                     </tr>
-                    <% if (login == false){ %>
-                        <% console.log("hi") %>
+                    <% if (login == null || login == false){ %>
+                        <td colspan="2" class="text-left"> You need to login first</td>  
                     <% } %>  
                     <% if(typeof scores != "undefined"){ %>
                         <% var count = 0 %>
@@ -71,6 +71,9 @@
                     <th class="text-center">Score</th>
                     <th class="text-center">Date Completed</th>
                 </tr>
+                <% if (login == null || login == false){ %>
+                    <td colspan="2" class="text-left"> You need to login first</td>  
+                <% } %>  
                 <% if(typeof scores != "undefined"){ %>
                     <% var count = 0 %>
                      <% scores.forEach(function(score){ %>
@@ -106,6 +109,9 @@
                     <th class="text-center">Score</th>
                     <th class="text-center">Date Completed</th>
                 </tr>
+                <% if (login == null || login == false){ %>
+                    <td colspan="2" class="text-left"> You need to login first</td>  
+                <% } %>  
                 <% if(typeof scores != "undefined"){ %>
                     <% var count = 0 %>
                      <% scores.forEach(function(score){ %>
