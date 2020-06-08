@@ -3,7 +3,7 @@ window.addEventListener('load', start);
 
 function start() {
     /* Add event listener to login & signup buttons */
-    document.getElementById("login").addEventListener("click", login);
+    document.getElementById("login").addEventListener("click", loginA);
     document.getElementById("signUp").addEventListener("click", signUp);
     /* Add enter key press listener for all input fields */
     keyListenEnter(document.getElementById("login-username"), "loginA");

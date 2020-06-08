@@ -108,7 +108,13 @@
 }
 
 .report-text {
-    padding-top: 1.5rem;
+    padding: 1.5rem;
+    letter-spacing: 0.5px;
+    line-height: 25px;
+}
+
+.report-text-spacing {
+    line-height: 1.75;
 }
 
 .report-section {
