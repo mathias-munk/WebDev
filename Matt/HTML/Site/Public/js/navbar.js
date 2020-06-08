@@ -93,3 +93,45 @@ function signUpB() {
         return false;
     }
 }
+function signUpA() {
+    var firstname = document.getElementById('register-firstname').value;
+    var lastname = document.getElementById('register-lastname').value;
+    var email = document.getElementById('register-email').value;
+    var username = document.getElementById('register-username').value;
+    var password = document.getElementById('register-password').value;
+    
+    var flag = true;
+    if (firstname.length == 0) {
+        document.getElementById("register-firstname").style.borderColor = "red";
+        flag=false;
+    }
+    if (lastname.length == 0) {
+        document.getElementById("register-lastname").style.borderColor = "red";
+        flag=false;
+    }
+    if (email.length == 0) {
+        document.getElementById("register-email").style.borderColor = "red";
+        flag=false;
+    }
+    if (username.length == 0) {
+        document.getElementById("register-username").style.borderColor = "red";
+        flag=false;
+    }
+    if (password.length == 0) {
+        document.getElementById("register-password").style.borderColor = "red";
+        flag=false;
+    }
+
+    let check = /^[A-Za-z]\w{7,14}$/
+    if(!password.match(check)){
+        document.getElementById("register-password").style.borderColor = "red";
+        flag=false;
+        alert("Password must be between 7 and 14 in length and contain at least one upper and lower case character");
+    }
+    if (flag == true) {
+        return true;
+    }
+    if (flag == false){
+        return false;
+    }
+}
