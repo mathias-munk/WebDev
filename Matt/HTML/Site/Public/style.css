@@ -38,7 +38,7 @@
 
 #grad {
     background-image: linear-gradient(to right, #56CCF2, #2F80ED);
-    color: #fff;
+    color: #eee;
 }
 
 .form-container {
@@ -185,6 +185,7 @@ footer {
 
 .header {
   background-color: #f0f5fa;
+  margin-top: -50px;
 }
 
 
@@ -284,6 +285,13 @@ https://bootsnipp.com/snippets/kM4Q
     color: white;
     text-align: center;
     font-size: 25px;
+    text-style: bold;
+}
+
+.quiz-title {
+    color: #2F80ED;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 45px;
     text-style: bold;
 }
 

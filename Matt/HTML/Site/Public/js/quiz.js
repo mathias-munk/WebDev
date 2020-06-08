@@ -28,7 +28,7 @@ getData();
     // Start Quiz page
     quizText.push(
         `<div class="slide active-slide">
-         <div class="title"> BubbleSort Quiz</div>
+         <div class="quiz-title"> BubbleSort Quiz</div>
          <h2> When ready, click Start to begin!</h2>
          </div>`
     )

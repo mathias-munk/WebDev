@@ -78,7 +78,7 @@
                         <% count = count + 1 %>
                         <tr>
                             <td><%=score.score %></td>  
-                            <td class ="text-right"><%= score.timeCompleted %></td>
+                            <td class ="text-right"><%= score.timeCompleted.substring(0, 19) %></td>
                         </tr>
                         <% }%>
                         <% }); %>
