@@ -264,15 +264,22 @@ function banUpperCase(root, folder) {
 var sqlite3 = require('sqlite3').verbose();
 let db;
 var path = "./testingdb";
-db = new sqlite3.Database("./testingdb");
+
+try{ 
+    if(fs.existsSync(path)){
+        db = new sqlite3.Database("./testingdb");
+    }
+
+}
+catch(err){
+    initThis();
+}
+
+
+
 
 async function initThis(){
-//try{
-    //if(fs.existsSync(path)){
-       // db = new sqlite3.Database("./testingdb");
-  //  }
-//}
-   // catch { 
+        db = new sqlite3.Database(path);
         
         db.serialize(function(){
         
@@ -324,16 +331,15 @@ async function initThis(){
                 }
                 console.log(row.userID + "\t" + row.testID + "\t" + row.score);
             });
-            var file = getQuestions(1);
         });
         
         
         });
-   // }
+   
         
 }
 
-initThis();
+
 
 
 
