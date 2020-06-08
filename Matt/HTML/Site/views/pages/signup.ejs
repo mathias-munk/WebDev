@@ -3,7 +3,6 @@
 <head>
     <%- include('../partials/head') %>
 </head>
-<script src="js/navbar.js" async="async"></script>
 <body id="grad">
 
 <header>
@@ -40,6 +39,7 @@
             <input type="text" class="form-control" id="register-email"
                     placeholder="example123@yahoo.com" name = "email"/>
         </div>
+        <div><li role="separator" class="divider"></li></div>
         <div class="row login-page-row">
             <h4>Enter Username:</h4>
         </div>
@@ -51,7 +51,14 @@
             <h4>Enter Password:</h4>
         </div>
         <div class="row">
-            <input type="text" class="form-control" id="register-password"
+            <input type="password" class="form-control" id="register-password" data-toggle="password"
+                        placeholder="Password" name = "password1"/>
+        </div>
+        <div class="row login-page-row">
+            <h4>Confirm Password:</h4>
+        </div>
+        <div class="row">
+            <input type="password" class="form-control" id="register-password" data-toggle="password"
                         placeholder="Password" name = "password2"/>
         </div>
         <div class = "col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">

@@ -17,6 +17,25 @@
     text-align: center;
 }
 
+.path {
+  animation: dash 50s linear alternate infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 500;
+  }
+}
+
+.report-image {
+    margin-top: 20px;
+    width: 60%;
+    height: auto;
+}
+
+
+
+
 #grad {
     background-image: linear-gradient(to right, #56CCF2, #2F80ED);
     color: #fff;
@@ -44,6 +63,16 @@
 
 #page-text {
     padding-bottom: 15px;
+}
+
+.page-text-link {
+    color: #fff;
+    font-style: italic;
+    text-decoration: none;
+}
+
+.button-link {
+    text-decoration: none;
 }
 
 #sort-buttons {
