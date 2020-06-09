@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -12,7 +11,7 @@
 
 <div class="container">
     
-    <div class="page-header page-title">
+    <div class="page-header page-title waypoint">
         <h1 class="title" id="page-title">Test Yourself!</h1>
     </div>
     <h3 id="page-text" class="text-center waypoint">Now that you've learnt all about the different algorithms we can
@@ -27,106 +26,30 @@
                 <table class="table table-bordered">
                     <thead class = "text-center">
                     <tr>
-                        <td colspan="2" class="table-title">Previous Attempts</td>
+                        <td colspan="3" class="table-title">Leaderboard</td>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <th class="text-center">Score</th>
+                        <th class="text-center">Username</th>
+                        <th class="text-center">Score / 5</th>
                         <th class="text-center">Date Completed</th>
                     </tr>
-                    <% if (login == null || login == false){ %>
-                        <td colspan="2" class="text-left"> You need to login first</td>  
-                    <% } %>  
-                    <% if(typeof scores != "undefined"){ %>
-                        <% var count = 0 %>
-                         <% scores.forEach(function(score){ %>
-                         <% if (score.testID == 1) {%>
-                            <% count = count + 1 %>
-                            <tr>
-                                <td><%=score.score %></td>  
-                                <td class ="text-right"><%= score.timeCompleted %></td>
-                            </tr>
-                            <% }%>
-                            <% }); %>
-                        <% if(count == 0) { %>
-                            <td colspan="2" class="text-left"> You have no previous attempts</td>  
-                        <% } %>
-                    <%} %>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 waypoint">
-            <div class="jumbotron" id="jumbo-test">
-                <a href="/testmerge" class="btn btn-warning btn-lg" id="sort-buttons" role="button">Merge Sort</a>
-                <table class="table table-bordered">
-                <thead class = "text-center">
-                <tr>
-                    <td colspan="2" class="table-title">Previous Attempts</td>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th class="text-center">Score</th>
-                    <th class="text-center">Date Completed</th>
-                </tr>
-                <% if (login == null || login == false){ %>
-                    <td colspan="2" class="text-left"> You need to login first</td>  
-                <% } %>  
-                <% if(typeof scores != "undefined"){ %>
-                    <% var count = 0 %>
-                     <% scores.forEach(function(score){ %>
-                     <% if (score.testID == 2) {%>
-                        <% count = count + 1 %>
-                        <tr>
-                            <td><%=score.score %></td>  
-                            <td class ="text-right"><%= score.timeCompleted.substring(0, 19) %></td>
-                        </tr>
-                        <% }%>
-                        <% }); %>
-                    <% if(count == 0) { %>
-                        <td colspan="2" class="text-left"> You have no previous attempts</td>  
-                    <% } %>
-                <%} %>
-                
-                
-                </tbody>
-            </table>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 waypoint">
-            <div class="jumbotron" id="jumbo-test">
-                <a href="/testquick" class="btn btn-warning btn-lg" id="sort-buttons" role="button">Quick Sort</a>
-                <table class="table table-bordered">
-                <thead class = "text-center">
-                <tr>
-                    <td colspan="2" class="table-title">Previous Attempts</td>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th class="text-center">Score</th>
-                    <th class="text-center">Date Completed</th>
-                </tr>
-                <% if (login == null || login == false){ %>
-                    <td colspan="2" class="text-left"> You need to login first</td>  
-                <% } %>  
-                <% if(typeof scores != "undefined"){ %>
-                    <% var count = 0 %>
-                     <% scores.forEach(function(score){ %>
-                     <% if (score.testID == 3) {%>
-                        <% count = count + 1 %>
-                        <tr>
-                            <td><%=score.score %></td>  
-                            <td class ="text-right"><%= score.timeCompleted %></td>
-                        </tr>
-                        <% }%>
-                        <% }); %>
-                    <% if(count == 0) { %>
-                        <td colspan="2" class="text-left"> You have no previous attempts</td>  
-                    <% } %>
-                <%} %>
+                    <tr>
+                        <td class="text-center">user1</td>
+                        <td class="text-center">4</td>
+                        <td class ="text-right">date</td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">user2</td>
+                        <td class="text-center">3</td>
+                        <td class ="text-right">date</td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">user1</td>
+                        <td class="text-center">1</td>
+                        <td class ="text-right">date</td>
+                    </tr>
                 </tbody>
             </table>
             </div>

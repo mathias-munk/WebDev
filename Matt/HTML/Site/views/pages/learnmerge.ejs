@@ -9,30 +9,105 @@
     <%- include('../partials/header') %>
 </header>
 
-<div class="container"  id="page-text">
+<div class="container" id="page-text">
     <div class="page-header page-title">
-        <h1 class="title" id="page-title">MergeSort Algorithm</h1>
+        <h1 id="page-title">Merge Sort Algorithm</h1>
+    </div>
+    <div class="row waypoint">
+        <h2>Overview</h2>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <h4 class="page-text">Bubble sort is one of the most inefficient sorting algorithms available,
+            but this also makes it one of the easiest algorithms to follow, so we’ll start here!</h4>
+            <h4 class="page-text">Bubble sort goes through our list of numbers to be sorted, and if two numbers are in
+            the wrong order, it swaps them. This is repeated until the entire list is in order.</h4>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <img class="gif img-fluid img-thumbnail" src="images/bubblesort-gif.gif" alt="Bubble sort animation" width="450" height="280"/>
+        </div>
     </div>
     <div class="row">
-        <div class="col-4">
-            <h2>Overview</h2>
-            <h3>There are hundreds of different algorithms all
-               designed to accomplish different tasks. Sorting different types of
-               information is one of the most common, and here we have 3 different
-               sorting algorithms:</h3>
+        <h2 class="waypoint" id="HowItWorks">How it Works</h2>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <h4 class="waypoint page-text">Starting with a list of numbers in a random order, the first 2 elements are selected – in the animation above, this is 5 and 6.
+            If we’re sorting this list from smallest to largest, these are in the correct order, so we leave them alone.</h4>
+            <h4 class="waypoint page-text">Then, we move on to the next 2 numbers which are 6 and 20. These are also in the correct order, but the next two numbers are 20 and 4.
+            These are not in the correct order, so we swap them!</h4>
         </div>
-        <div class="col-8">
-            <!-- Bubblesort animation goes here -->
+        <div class="waypoint col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="embed-responsive embed-responsive-16by9">
+                <img src="images/mergeplaceholder.png" width="560" height="315" class="video-placeholder img-fluid img-thumbnail" id="mergesort-placeholder"/>
+                <iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/4VqmGXwpLqc" frameborder="0.5" allow="accelerometer;
+                autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display:none" id="mergesort-placeholder-video"></iframe>
+            </div>
+            <h4 class="page-text video-caption">Check out this video for a quick tutorial on merge sort!</h4>
         </div>
-        <div class="col-12">
-            <h2 id="HowItWorks">How it Works</h2>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+           <h4 class="waypoint page-text">Since 20 is the biggest number here, it gets swapped all the way to the end and turns green, so we know it's in the correct position.
+           We keep repeating these steps until we can see that the numbers are in the right order, but how does the computer know?</h4>
+            <h4 class="waypoint page-text">Bubble sort is only finished when it completes an entire pass and doesn't need to swap any numbers, because they're all in the right order! </h4>
         </div>
-        <div class="col-12">
-           <h2 id="Animation">Animation</h2>
+    </div>
+    <div class = "row report-element waypoint well">
+        <div class = "report-heading waypoint"><h4>Merge Sort: Step by Step Instructions</h4></div>
+        <div class = "report-text">
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-6 waypoint">
+                <div class="jumbotron" id="jumbo-learn">
+                    <h4 class="jumbo-learn-heading">Step 1</h4>
+                    <h5>Select the next 2 elements in the list</h5>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-6 waypoint">
+                <div class="jumbotron" id="jumbo-learn">
+                    <h4 class="jumbo-learn-heading">Step 2</h4>
+                    <h5>If they’re in the wrong order, swap them. If they’re in the right order, leave them alone.</h5>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-6 waypoint">
+                <div class="jumbotron" id="jumbo-learn">
+                    <h4 class="jumbo-learn-heading">Step 3</h4>
+                    <h5>Repeat steps 1 & 2 until you reach the end of the list</h5>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-6 waypoint">
+                <div class="jumbotron" id="jumbo-learn">
+                    <h4 class="jumbo-learn-heading">Step 4</h4>
+                    <h5>Keep going through the list until no swaps are made – then the list is sorted!</h5>
+                </div>
+            </div>
         </div>
-        <div class="col-12">
-            <h2 id="Code">Code</h2>
+    </div>
+    <div class="row">
+        <div class="report-element waypoint">
+            <h2 class="report-heading waypoint" id="Animation">Animation</h2>
+            <div class="report-text waypoint">
+                <h4 class="report-text-spacing">Now you can see the merge sort in action!</h4>
+                <h4 class="report-text-spacing">Play/Pause the animation, or use the slider and click Reset to change how many numbers you want to sort!</h4>
+            </div>
+            <div class="row waypoint">
+                <div class="animation-container"></div>
+            </div>
+            <div class="row waypoint">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 animation-buttons">
+                    <div class="btn-group btn-group-lg" role="group">
+                        <button type="button" class="btn btn-default" id="animation-play" onclick="this.disabled=true;">Play</button>
+                        <button type="button" class="btn btn-default" id="animation-pause">Pause</button>
+                        <button type="button" class="btn btn-default" id="animation-reset">Reset</button>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-6 ">
+                    <div class="slidercontainer">
+                      <input type="range" min="1" max="20" value="10" class="slider" id="numblocks">
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-4" style="text-align:left;">
+                    <button type="button" class="btn btn-default" id="slider-value"></button>
+                </div>
+            </div>
         </div>
+    </div>
+    <div class="row waypoint">
+        <h2 id="Code">Code</h2>
+    </div>
     </div>
 </div>
 

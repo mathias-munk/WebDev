@@ -1,9 +1,12 @@
 "use strict";
+
 var myQuestions;
 var iQuestions = [];
+
 function getData(){
   fetch("/data").then(receive);
 }
+
 function receive(response){
   iQuestions = response.json().then(data=> {
     console.log(data);
@@ -11,6 +14,7 @@ function receive(response){
     console.log(myQuestions);
   })
 }
+
 getData();
 // Immediately invoked function expression
 (
@@ -24,6 +28,7 @@ getData();
     
     const quizText = [];
     const pageNumbers = [];
+
 
     // Start Quiz page
     quizText.push(
@@ -172,7 +177,7 @@ getData();
   }
 
   // Variables
-  const quizContainer = document.getElementById('quiz');
+  const quizContainer = document.querySelector('quiz');
   const paginationContainer = document.getElementById('pagination');
   const resultsContainer = document.getElementById('results');
   const submitButton = document.getElementById('quiz-submit');
