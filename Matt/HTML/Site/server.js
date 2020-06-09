@@ -135,7 +135,7 @@ app.get('/result/:testid/:score',(req,res)=>{
         backurl = req.header('Referer') || '/';
         console.log(backurl);
         console.log("trying the redirect");
-        res.redirect('/login');
+        res.redirect('/loginredirect');
     }
   });
 
@@ -147,7 +147,7 @@ app.get('/result/:testid/:score',(req,res)=>{
         backurl = req.header('Referer') || '/';
         console.log(backurl);
         console.log("trying the redirect");
-        res.redirect('/login');
+        res.redirect('/loginredirect');
     }
   });
 
@@ -159,7 +159,7 @@ app.get('/result/:testid/:score',(req,res)=>{
         backurl = req.header('Referer') || '/';
         console.log(backurl);
         console.log("trying the redirect");
-        res.redirect('/login');
+        res.redirect('/loginredirect');
     }
   });
 
