@@ -9,30 +9,108 @@
     <%- include('../partials/header') %>
 </header>
 
-<div class="container"  id="page-text">
+<div class="container" id="page-text">
     <div class="page-header page-title">
-        <h1 class="title" id="page-title">QuickSort Algorithm</h1>
+        <h1 id="page-title">Quick Sort Algorithm</h1>
+    </div>
+    <div class="row waypoint">
+        <h2>Overview</h2>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <h4 class="page-text">Quick sort lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</h4>
+            <h4 class="page-text">Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+            in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.</h4>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <img class="gif img-fluid img-thumbnail" src="images/bubblesort-gif.gif" alt="Bubble sort animation" width="450" height="280"/>
+        </div>
     </div>
     <div class="row">
-        <div class="col-4">
-            <h2>Overview</h2>
-            <h3>There are hundreds of different algorithms all
-                designed to accomplish different tasks. Sorting different types of
-                information is one of the most common, and here we have 3 different
-                sorting algorithms:</h3>
+        <h2 class="waypoint" id="HowItWorks">How it Works</h2>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <h4 class="waypoint page-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            In a ex metus. Phasellus diam leo, efficitur sit amet pretium vitae, posuere eget diam. In imperdiet ante nulla,
+            non suscipit quam luctus at. In arcu magna, pharetra id massa eu, luctus facilisis quam.</h4>
+            <h4 class="waypoint page-text"> Quisque semper sapien a libero interdum lobortis. Vivamus in libero vitae lacus
+            suscipit placerat eget nec mauris. Morbi condimentum ante vel metus fermentum consectetur.</h4>
         </div>
-        <div class="col-8">
-            <!-- Bubblesort animation goes here -->
+        <div class="waypoint col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="embed-responsive embed-responsive-16by9">
+                <img src="images/quicksortplaceholder.png" width="560" height="315" class="video-placeholder img-fluid img-thumbnail" id="quicksort-placeholder"/>
+                <iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/Hoixgm4-P4M" frameborder="0.5" allow="accelerometer; autoplay; encrypted-media; gyroscope;
+                picture-in-picture" allowfullscreen style="display:none" id="quicksort-placeholder-video"></iframe>
+            </div>
+            <h4 class="page-text video-caption">Check out this video for a quick tutorial on quick sort!</h4>
         </div>
-        <div class="col-12">
-            <h2 id="HowItWorks">How it Works</h2>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+           <h4 class="waypoint page-text">Duis finibus aliquam orci ac viverra. Integer eu diam in nisi varius placerat vitae vitae metus. In pulvinar tincidunt ante eu porta.
+           Suspendisse id scelerisque tortor. Sed ornare dapibus ligula, id imperdiet justo tempor sed.</h4>
+            <h4 class="waypoint page-text"> Integer fringilla leo pellentesque dolor mattis, vitae ultricies dui tempus. Nunc quis dui eget ex venenatis blandit.</h4>
         </div>
-        <div class="col-12">
-            <h2 id="Animation">Animation</h2>
+    </div>
+    <div class = "row report-element waypoint well">
+        <div class = "report-heading waypoint"><h4>Quick Sort: Step by Step Instructions</h4></div>
+        <div class = "report-text">
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-6 waypoint">
+                <div class="jumbotron" id="jumbo-learn">
+                    <h4 class="jumbo-learn-heading">Step 1</h4>
+                    <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </h5>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-6 waypoint">
+                <div class="jumbotron" id="jumbo-learn">
+                    <h4 class="jumbo-learn-heading">Step 2</h4>
+                    <h5>In a ex metus. Phasellus diam leo, efficitur sit amet pretium vitae, posuere eget diam. </h5>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-6 waypoint">
+                <div class="jumbotron" id="jumbo-learn">
+                    <h4 class="jumbo-learn-heading">Step 3</h4>
+                    <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-6 waypoint">
+                <div class="jumbotron" id="jumbo-learn">
+                    <h4 class="jumbo-learn-heading">Step 4</h4>
+                    <h5>Vivamus in libero vitae lacus suscipit placerat eget nec mauris. Morbi condimentum ante
+                    vel metus fermentum consectetur.</h5>
+                </div>
+            </div>
         </div>
-        <div class="col-12">
-            <h2 id="Code">Code</h2>
+    </div>
+    <div class="row">
+        <div class="report-element waypoint">
+            <h2 class="report-heading waypoint" id="Animation">Animation</h2>
+            <div class="report-text waypoint">
+                <h4 class="report-text-spacing">Now you can see the quick sort in action!</h4>
+                <h4 class="report-text-spacing">Play/Pause the animation, or use the slider and click Reset to change how many numbers you want to sort!</h4>
+            </div>
+            <div class="row waypoint">
+                <div class="animation-container"></div>
+            </div>
+            <div class="row waypoint">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 animation-buttons">
+                    <div class="btn-group btn-group-lg" role="group">
+                        <button type="button" class="btn btn-default" id="animation-play" onclick="this.disabled=true;">Play</button>
+                        <button type="button" class="btn btn-default" id="animation-pause">Pause</button>
+                        <button type="button" class="btn btn-default" id="animation-reset">Reset</button>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-6 ">
+                    <div class="slidercontainer">
+                      <input type="range" min="1" max="20" value="10" class="slider" id="numblocks">
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-4" style="text-align:left;">
+                    <button type="button" class="btn btn-default" id="slider-value"></button>
+                </div>
+            </div>
         </div>
+    </div>
+    <div class="row waypoint">
+        <h2 id="Code">Code</h2>
+    </div>
     </div>
 </div>
 

@@ -6,8 +6,6 @@ function addSmoothScroll() {
 
     // check this.hash has a value before overriding default behavior
     if (this.hash !== "") {
-      // Prevent default anchor click behavior
-      event.preventDefault();
 
       // Store hash
       var hash = this.hash;
@@ -20,6 +18,7 @@ function addSmoothScroll() {
         // Add hash (#) to URL when done scrolling (default click behavior)
         window.location.hash = hash;
       });
+      return false;
     }
   });
 }

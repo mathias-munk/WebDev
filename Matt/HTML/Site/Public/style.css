@@ -128,9 +128,8 @@
 }
 
 .gif {
-    border: 1px solid #dee2e6;
-    border-spacing: 2px;
     resize: auto;
+    max-height: 300px;
 }
 
 
@@ -245,6 +244,7 @@ body {
     min-height: 100%;
     font-family: 'Montserrat', sans-serif;
     overscroll-behavior-y: none;
+    min-width: 650px;
 }
 
 .letter {
@@ -292,6 +292,7 @@ footer {
 .header {
   background-color: #f0f5fa;
   margin-top: -50px;
+  min-width: 650px;
 }
 
 
