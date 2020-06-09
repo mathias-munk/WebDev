@@ -136,6 +136,7 @@ app.get('/result/:testid/:score',(req,res)=>{
         res.redirect('/loginredirect');
     }
   });
+
   app.get('/testmerge', function(req,res){
     if(req.session.loggedin){
         res.render('pages/testmerge', {login: req.session.loggedin, username:req.session.username});
@@ -159,6 +160,7 @@ app.get('/result/:testid/:score',(req,res)=>{
         res.redirect('/loginredirect');
     }
   });
+
   app.get('/data', function(req,res){
     getQuestions(1);
     setTimeout(function(){
@@ -181,7 +183,20 @@ app.get('/result/:testid/:score',(req,res)=>{
         res.render('pages/login',{login: req.session.loggedin, username:req.session.username, type:typeOfDirect});
   });
 
-  app.use('/auth', function(request, response) {
+  
+  app.get('/account', function(req,res){
+      if(req.session.loggedin){
+          res.render('pages/account', {login: req.session.loggedin, username:req.session.username});
+      }
+      else{
+          backurl = req.header('Referer') || '/';
+          console.log(backurl);
+          console.log("redirecting");
+          res.redirect('/loginredirect');
+      }
+  });
+
+app.post('/auth', function(request, response) {
     
     
     var username = request.body.username;
