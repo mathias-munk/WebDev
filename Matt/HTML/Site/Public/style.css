@@ -4,17 +4,42 @@
     padding-top: 20px;
 }
 
+.row {
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
 #jumbo {
-    background: #6d858f;
     padding: 20px;
-    border: 1.5px solid white;
     text-align: center;
+    border: 1px solid #dee2e6;
+    border-spacing: 2px;
+    padding: 1.5rem;
+    background: #4F6D7A;
+}
+
+#jumbo-learn {
+    background: #F7FFF6;
+    padding: 10px;
+    border: 2px solid black;
+    color: #111;
+    text-style: bold;
+    text-align: center;
+}
+
+.jumbo-learn-heading {
+    padding-top: 0px;
+    border-bottom: 1px solid #111;
 }
 
 #jumbo-test {
     background: none;
     padding: 20px;
     text-align: center;
+}
+
+.waypoint {
+    visibility: hidden;
 }
 
 .path {
@@ -27,12 +52,86 @@
   }
 }
 
+.svg-container {
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	vertical-align: middle;
+}
+
+.svg-content {
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
 .report-image {
     margin-top: 20px;
     width: 60%;
     height: auto;
 }
 
+.video-placeholder {
+    display: inline-block;
+    cursor: pointer;
+    resize: auto;
+}
+
+.video-caption {
+    text-align: center;
+    color: #E0E0E2;
+    font-style: italic;
+}
+
+.animation-container {
+  width: 600px;
+  height: 300px;
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  resize: auto;
+
+}
+
+.animation-buttons {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+.block {
+  width: 28px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: #58b7ff;
+  transition: 0.2s all ease;
+}
+
+.block__id {
+  position: absolute;
+  top: -24px;
+  width: 100%;
+  text-align: center;
+}
+
+.slidercontainer {
+  width: 100%; /* Width of the outside container */
+  text-align: left;
+  margin-top: 12px;
+  opacity: 0.8;
+}
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+  cursor: pointer;
+}
+
+.gif {
+    border: 1px solid #dee2e6;
+    border-spacing: 2px;
+    resize: auto;
+}
 
 
 
@@ -45,6 +144,7 @@
     width: 50%;
     display: inline-block;
     text-align: left;
+    margin-bottom: 40px;
 }
 
 
@@ -61,8 +161,9 @@
     font-size: 45px;
 }
 
-#page-text {
+.page-text {
     padding-bottom: 15px;
+    line-height: 1.75;
 }
 
 .page-text-link {
@@ -110,7 +211,6 @@
 .report-text {
     padding: 1.5rem;
     letter-spacing: 0.5px;
-    line-height: 25px;
 }
 
 .report-text-spacing {
@@ -270,7 +370,7 @@ https://bootsnipp.com/snippets/kM4Q
 .login-page-button {
     margin-top: 15px;
     padding: 5px;
-    margin-bottom: 30px;
+    margin-bottom: 5px;
 }
 
 .logo {
