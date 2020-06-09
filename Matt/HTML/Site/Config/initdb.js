@@ -11,10 +11,10 @@ async function initThis(){
         db.serialize(function(){
         
             db.run("DROP TABLE IF EXISTS user");
-            console.log("why");
-            db.run("CREATE TABLE user (id INTEGER PRIMARY KEY autoincrement, name TEXT UNIQUE, pw TEXT NOT NULL, firstname TEXT NOT NULL, surname TEXT NOT NULL, email TEXT NOT NULL)");
-            console.log("why 2");
-            var stmt = db.prepare("INSERT INTO user(name, pw, email, firstname, surname) VALUES(?,?,?,?,?)");
+            
+            db.run("CREATE TABLE user (id INTEGER PRIMARY KEY autoincrement, name TEXT UNIQUE, pw TEXT NOT NULL, firstname TEXT NOT NULL, lastname TEXT NOT NULL, email TEXT NOT NULL)");
+            
+            var stmt = db.prepare("INSERT INTO user(name, pw, email, firstname, lastname) VALUES(?,?,?,?,?)");
             stmt.run("tias", "m", "mathias.munk@javascript.com", "Mathias", "Munk");
             stmt.finalize();
             db.each("SELECT name, pw FROM user", function(err, row){
@@ -75,7 +75,7 @@ async function initThis(){
         
         
         });
-   
+        console.log("DB Created");
         db.close;
 }
 
