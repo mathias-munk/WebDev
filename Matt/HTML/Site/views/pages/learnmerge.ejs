@@ -79,35 +79,37 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="report-element waypoint">
-            <h2 class="report-heading waypoint" id="Animation">Animation</h2>
-            <div class="report-text waypoint">
-                <h4 class="report-text-spacing">Now you can see the merge sort in action!</h4>
-                <h4 class="report-text-spacing">Play/Pause the animation, or use the slider and click Reset to change how many numbers you want to sort!</h4>
+    <div class="row report-element report-section waypoint">
+        <h2 class="report-heading waypoint" id="Animation">Animation</h2>
+        <div class="report-text waypoint">
+            <h4 class="report-text-spacing">Now you can see the merge sort in action!</h4>
+            <h4 class="report-text-spacing">Play/Pause the animation, or use the slider and click Reset to change how many numbers you want to sort!</h4>
+        </div>
+        <div class="row waypoint">
+            <div class="animation-container"></div>
+        </div>
+        <div class="row waypoint">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 animation-buttons">
+                <div class="btn-group btn-group-lg" role="group">
+                    <button type="button" class="btn btn-default" id="animation-play" onclick="this.disabled=true;">Play</button>
+                    <button type="button" class="btn btn-default" id="animation-pause">Pause</button>
+                    <button type="button" class="btn btn-default" id="animation-reset">Reset</button>
+                </div>
             </div>
-            <div class="row waypoint">
-                <div class="animation-container"></div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-6 ">
+                <div class="slidercontainer">
+                  <input type="range" min="1" max="20" value="10" class="slider" id="numblocks">
+                </div>
             </div>
-            <div class="row waypoint">
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 animation-buttons">
-                    <div class="btn-group btn-group-lg" role="group">
-                        <button type="button" class="btn btn-default" id="animation-play" onclick="this.disabled=true;">Play</button>
-                        <button type="button" class="btn btn-default" id="animation-pause">Pause</button>
-                        <button type="button" class="btn btn-default" id="animation-reset">Reset</button>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-6 ">
-                    <div class="slidercontainer">
-                      <input type="range" min="1" max="20" value="10" class="slider" id="numblocks">
-                    </div>
-                </div>
-                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-4" style="text-align:left;">
-                    <button type="button" class="btn btn-default" id="slider-value"></button>
-                </div>
+            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-4" style="text-align:left;">
+                <button type="button" class="btn btn-default" id="slider-value"></button>
             </div>
         </div>
     </div>
+    <div class="row waypoint report-section report-element">
+        <h2 class="report-heading waypoint" id="Code">Code</h2>
+        <div class="code-container">
+        </div>
     </div>
 </div>
 

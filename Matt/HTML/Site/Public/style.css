@@ -38,6 +38,11 @@
     margin-top: 15px;
 }
 
+.code-container {
+    padding: 10px;
+    margin: 10px;
+}
+
 .waypoint {
     visibility: hidden;
 }

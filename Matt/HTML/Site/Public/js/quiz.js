@@ -2,9 +2,17 @@
 
 var myQuestions;
 var iQuestions = [];
+const quizContainer = document.querySelector('.quiz');
+const paginationContainer = document.getElementById('pagination');
+const resultsContainer = document.getElementById('results');
+const submitButton = document.getElementById('quiz-submit');
+const startButton = document.getElementById('quiz-start');
+
+var testID = parseInt(quizContainer.id);
 
 function getData(){
-  fetch("/data").then(receive);
+
+  fetch("/data/" + testID).then(receive);
 }
 
 function receive(response){
@@ -33,7 +41,7 @@ getData();
     // Start Quiz page
     quizText.push(
         `<div class="slide active-slide">
-         <div class="quiz-title"> BubbleSort Quiz</div>
+         <div class="quiz-title">Quiz Time!</div>
          <h2> When ready, click Start to begin!</h2>
          </div>`
     )
@@ -130,7 +138,7 @@ getData();
 
     // show number of correct answers out of total
     resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
-    fetch("result/1/" + numCorrect);
+    fetch("result/" + testID + "/" + numCorrect);
   }
 
   function showSlide(n) {
@@ -177,11 +185,7 @@ getData();
   }
 
   // Variables
-  const quizContainer = document.querySelector('quiz');
-  const paginationContainer = document.getElementById('pagination');
-  const resultsContainer = document.getElementById('results');
-  const submitButton = document.getElementById('quiz-submit');
-  const startButton = document.getElementById('quiz-start');
+
 //
 //  const myQuestions = [
 //    {

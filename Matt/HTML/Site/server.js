@@ -161,8 +161,8 @@ app.get('/result/:testid/:score',(req,res)=>{
     }
   });
 
-  app.get('/data', function(req,res){
-    getQuestions(1);
+  app.get('/data/:testID', function(req,res){
+    getQuestions(req.params.testID);
     setTimeout(function(){
           console.log("hi" + JSON.stringify(questions));
           res.send(questions);

@@ -2,12 +2,38 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <%- include('../partials/head') %>
+    <script src="js/quiz.js" defer="defer" async = "async"></script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
 </head>
 <body id="grad">
 
 <header>
     <%- include('../partials/header') %>
 </header>
+
+<div class="container">
+    <div class="page-header page-title">
+        <h1 class="title" id="page-title">Quick Sort</h1>
+    </div>
+    <div class="jumbotron" id="quiz-jumbo">
+        <div class="quiz-container">
+            <div class="quiz" id="3"></div>
+        </div>
+        <div id="results"></div>
+
+        <ul class="pagination pull-left">
+            <li id="quiz-previous" style="visibility: hidden;"><a href="#">Previous</a></li>
+        </ul>
+
+        <ul class="pagination" id="pagination"></ul>
+
+         <ul class="pagination pull-right">
+            <li><a href="#" id="quiz-start">Start</a></li>
+            <li><a href="#" id="quiz-next" style="display: none;">Next</a></li>
+            <li><a href="#" id="quiz-submit" style="display: none;">Submit</a></li>
+        </ul>
+    </div>
+</div>
 
 <footer>
     <%- include('../partials/footer') %>
