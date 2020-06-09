@@ -90,16 +90,8 @@ function signUpB() {
         flag=false;
         alert("Password must be at least 8 in length and contain one number");
     }
-    if (flag == true) {
-        alert("CREATED ACCOUNT\nUsername: " + username + "\nPassword: " + password);
-        return true;
-    }
-    if (flag == false){
-        console.log("false");
-        alert("FUCK YOU");
-        return false;
-    }
 }
+
 function signUpA() {
     var firstname = document.getElementById('register-firstname').value;
     var lastname = document.getElementById('register-lastname').value;

@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	addWaypoint('#database-section', -100);
 	addWaypoint('#dynamic-section', 100);
 
-})
+});
 
 // Creates a waypoint which activates when the user scrolls down
 // to the element

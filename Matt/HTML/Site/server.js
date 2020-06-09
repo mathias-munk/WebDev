@@ -282,7 +282,7 @@ app.post('/register', function(request, response){
                 db.run("INSERT INTO user (name, pw,email) VALUES(?,?,?)",[username, password, email]);
                 request.session.username = username;
                 request.session.loggedin =  true;
-                request.session.id = db.run("SELECT id FROM user WHERE name = ?", [username]);
+                request.session.userid = db.run("SELECT id FROM user WHERE name = ?", [username]);
                 response.render('pages/learnhome',{login: request.session.loggedin, username:request.session.username});
 			}			
 			response.end();
