@@ -84,14 +84,12 @@ https.createServer({
   });
 
   app.get('/testhome', async(req, res) =>{
-      console.log(req.session.username);
+      
       db.all("SELECT * FROM attempt WHERE userID = ? ",[req.session.username] ,(err,results)=>{
         if(err){
             console.error(err.message);
         }
        
-        console.log(req.session.loggedin);
-        console.log(typeof req.session.loggedin);
         res.render('pages/testhome', {login: req.session.loggedin,username:req.session.username,scores: results});
         res.end();
     });
@@ -185,6 +183,7 @@ app.get('/result/:testid/:score',(req,res)=>{
         res.render('pages/login',{login: req.session.loggedin, username:req.session.username, type:typeOfDirect});
   });
 
+  
   app.get('/account', function(req,res){
       if(req.session.loggedin){
           res.render('pages/account', {login: req.session.loggedin, username:req.session.username});
@@ -197,57 +196,73 @@ app.get('/result/:testid/:score',(req,res)=>{
       }
   });
 
-app.use('/auth', function(request, response) {
+app.post('/auth', function(request, response) {
     
     
     var username = request.body.username;
     var password = request.body.password;
-    console.log("inside authenticate");
-	if (authenticate(username, password) == true){
-        request.session.loggedin = true;
-        request.session.username = username;
-        if(backurl){
-            response.redirect(backurl);
-        }
-        else{
-            response.redirect('/');  
-        }
-    }
-    else{
-        response.redirect('/loginredirect')
-    }
-});
-
-async function authenticate(username, password){
-    if (username && password) {
-        await db.all("SELECT * FROM user WHERE name = ? AND pw = ?",[username, password] ,(err,results)=>{
+    
+    console.log(username);
+	if (username && password) {
+        db.all("SELECT * FROM user WHERE name = ? AND pw = ? ",[username, password] ,(err,results)=>{
             if(err){
                 console.error(err.message);
             }
-			if (results.length == 1) {
-                console.log(results[0].name);
-                console.log(results[0].pw);
-                return true;
-            } 
+            console.log(results.length);
+			if (results.length > 0) {
+				request.session.loggedin = true;
+                request.session.username = username;
+                if(backurl){
+                    response.redirect(backurl);
+                }
+                else{
+                    response.redirect('/');  
+                }
+				
+			} else {
+                loginFail = true;
+				response.redirect('/loginredirect')
+			}			
+			response.end();
         });
     }
-    console.log("fell to bottom of authenticate")
-    loginFail = true;
-    return false;
-  }
+	 else {
+         loginfail = true;
+		response.redirect('/logindirect')
+	}
+});
 
+app.get('/account', function(req, res){
+    if(req.session.loggedin == true){
+        db.all("SELECT * FROM attempt WHERE userID = ? ",[req.session.username] ,(err,results)=>{
+            if(err){
+                console.error(err.message);
+            }
+           
+            res.render('pages/account', {login: req.session.loggedin,username:req.session.username,scores: results});
+            res.end();
+        });
+    }
+    else{
+
+    
+        res.redirect('loginredirect');
+    }
+});
 
 app.post('/register', function(request, response){
     var username = request.body.regusername;
     var password = request.body.regpassword;
+    var email = request.body.regEmail;
     
     if(request.body.regusername == null){
         
         username = request.body.username2;
         password = request.body.password2;
+        email = request.body.email;
     }
 
-    if(username && password){
+    if(username && password && email){
         db.all("SELECT * FROM user WHERE name = ?",[username] ,(err,results)=>{
             if(err){
                 console.error(err.message);
@@ -256,7 +271,7 @@ app.post('/register', function(request, response){
 			if (results.length > 0) {
 				response.render('pages/login',{login: request.session.loggedin, username:request.session.username});
 			} else {
-                db.run("INSERT INTO user (name, pw) VALUES(?,?)",[username, password]);
+                db.run("INSERT INTO user (name, pw,email) VALUES(?,?,?)",[username, password, email]);
                 request.session.username = username;
                 request.session.loggedin =  true;
                 response.render('pages/learnhome',{login: request.session.loggedin, username:request.session.username});
@@ -265,7 +280,7 @@ app.post('/register', function(request, response){
         });
     }
     else{
-        response.send("error receiving username and password");
+        response.send("error receiving username, password and email");
     }
 });
 app.get('/logout', function(request,response){

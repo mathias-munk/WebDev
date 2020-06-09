@@ -12,10 +12,10 @@ async function initThis(){
         
             db.run("DROP TABLE IF EXISTS user");
             console.log("why");
-            db.run("CREATE TABLE user ( name TEXT PRIMARY KEY, pw TEXT NOT NULL)");
+            db.run("CREATE TABLE user ( name TEXT PRIMARY KEY, pw TEXT NOT NULL, email TEXT NOT NULL)");
             console.log("why 2");
-            var stmt = db.prepare("INSERT INTO user(name, pw) VALUES(?,?)");
-            stmt.run("tias", "m");
+            var stmt = db.prepare("INSERT INTO user(name, pw, email) VALUES(?,?,?)");
+            stmt.run("tias", "m", "mathias.munk@javascript.com");
             stmt.finalize();
             db.each("SELECT name, pw FROM user", function(err, row){
                 if(err){

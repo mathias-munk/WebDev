@@ -54,6 +54,7 @@ function signUpB() {
     var email = document.getElementById('signUp-email').value;
     var username = document.getElementById('signUp-username').value;
     var password = document.getElementById('signUp-password').value;
+    var password2 = document.getElementById('signUp-password2').value;
     
     var flag = true;
     if (firstname.length == 0) {
@@ -76,12 +77,18 @@ function signUpB() {
         document.getElementById("signUp-password").style.borderColor = "red";
         flag=false;
     }
-
-    let check = /^[A-Za-z]\w{7,14}$/
+    else{
+        if(password !=  password2){
+            document.getElementById("signUp-password").style.borderColor = "red";
+            document.getElementById("signUp-password2").style.borderColor = "red";
+            flag = false;
+        }
+    }
+    let check = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
     if(!password.match(check)){
         document.getElementById("signUp-password").style.borderColor = "red";
         flag=false;
-        alert("Password must be at least 8");
+        alert("Password must be at least 8 in length and contain one number");
     }
     if (flag == true) {
         alert("CREATED ACCOUNT\nUsername: " + username + "\nPassword: " + password);
@@ -99,7 +106,7 @@ function signUpA() {
     var email = document.getElementById('register-email').value;
     var username = document.getElementById('register-username').value;
     var password = document.getElementById('register-password').value;
-    
+    var password2 = document.getElementById('register-password2').value;
     var flag = true;
     if (firstname.length == 0) {
         document.getElementById("register-firstname").style.borderColor = "red";
@@ -120,6 +127,13 @@ function signUpA() {
     if (password.length == 0) {
         document.getElementById("register-password").style.borderColor = "red";
         flag=false;
+    }
+    else{
+        if(password !=  password2){
+            document.getElementById("register-password").style.borderColor = "red";
+            document.getElementById("register-password2").style.borderColor = "red";
+            flag = false;
+        }
     }
 
     let check = /^[A-Za-z]\w{7,14}$/
