@@ -61,6 +61,7 @@ async function bubbleSort(delay) {
   if (delay && typeof delay !== "number") {
     return;
   }
+  pauseButtonClicked = false;
   let blocks = document.querySelectorAll(".block");
   for (let i = 0; i < blocks.length - 1; i++) {
     for (let j = 0; j < blocks.length - i - 1; j++) {
