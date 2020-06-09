@@ -38,6 +38,8 @@
                     </tr>
                     <% if (login == false){ %>
                         <% console.log("hi") %>
+                    <% if (login == null || login == false){ %>
+                        <td colspan="2" class="text-left"> You need to login first</td>
                     <% } %>
                     <% if(typeof scores != "undefined"){ %>
                         <% var count = 0 %>
@@ -72,56 +74,100 @@
                     <th class="text-center">Score</th>
                     <th class="text-center">Date Completed</th>
                 </tr>
-                <% if(typeof scores != "undefined"){ %>
-                    <% var count = 0 %>
-                     <% scores.forEach(function(score){ %>
-                     <% if (score.testID == 2) {%>
-                        <% count = count + 1 %>
-                        <tr>
-                            <td><%=score.score %></td>
-                            <td class ="text-right"><%= score.timeCompleted.substring(0, 19) %></td>
-                        </tr>
-                        <% }%>
-                        <% }); %>
-                    <% if(count == 0) { %>
-                        <td colspan="2" class="text-left"> You have no previous attempts</td>
-                    <% } %>
-                <%} %>
+                <% if (login == false){ %>
+                                        <% console.log("hi") %>
+                                    <% if (login == null || login == false){ %>
+                                        <td colspan="2" class="text-left"> You need to login first</td>
+                                    <% } %>
+                                    <% if(typeof scores != "undefined"){ %>
+                                        <% var count = 0 %>
+                                         <% scores.forEach(function(score){ %>
+                                         <% if (score.testID == 1) {%>
+                                            <% count = count + 1 %>
+                                            <tr>
+                                                <td><%=score.score %></td>
+                                                <td class ="text-right"><%= score.timeCompleted %></td>
+                                            </tr>
+                                            <% }%>
+                                            <% }); %>
+                                        <% if(count == 0) { %>
+                                            <td colspan="2" class="text-left"> You have no previous attempts</td>
+                                        <% } %>
+                                    <%} %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 waypoint">
+                            <div class="jumbotron" id="jumbo-test">
+                                <a href="/testmerge" class="btn btn-warning btn-lg" id="sort-buttons" role="button">Merge Sort</a>
+                                <table class="table table-bordered">
+                                <thead class = "text-center">
+                                <tr>
+                                    <td colspan="2" class="table-title">Previous Attempts</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th class="text-center">Score</th>
+                                    <th class="text-center">Date Completed</th>
+                                </tr>
+                                <% if (login == null || login == false){ %>
+                                    <td colspan="2" class="text-left"> You need to login first</td>
+                                <% } %>
+                                <% if(typeof scores != "undefined"){ %>
+                                    <% var count = 0 %>
+                                     <% scores.forEach(function(score){ %>
+                                     <% if (score.testID == 2) {%>
+                                        <% count = count + 1 %>
+                                        <tr>
+                                            <td><%=score.score %></td>
+                                            <td class ="text-right"><%= score.timeCompleted.substring(0, 19) %></td>
+                                        </tr>
+                                        <% }%>
+                                        <% }); %>
+                                    <% if(count == 0) { %>
+                                        <td colspan="2" class="text-left"> You have no previous attempts</td>
+                                    <% } %>
+                                <%} %>
 
 
-                </tbody>
-            </table>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 waypoint">
-            <div class="jumbotron" id="jumbo-test">
-                <a href="/testquick" class="btn btn-warning btn-lg" id="sort-buttons" role="button">Quick Sort</a>
-                <table class="table table-bordered">
-                <thead class = "text-center">
-                <tr>
-                    <td colspan="2" class="table-title">Previous Attempts</td>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th class="text-center">Score</th>
-                    <th class="text-center">Date Completed</th>
-                </tr>
-                <% if(typeof scores != "undefined"){ %>
-                    <% var count = 0 %>
-                     <% scores.forEach(function(score){ %>
-                     <% if (score.testID == 3) {%>
-                        <% count = count + 1 %>
-                        <tr>
-                            <td><%=score.score %></td>
-                            <td class ="text-right"><%= score.timeCompleted %></td>
-                        </tr>
-                        <% }%>
-                        <% }); %>
-                    <% if(count == 0) { %>
-                        <td colspan="2" class="text-left"> You have no previous attempts</td>
-                    <% } %>
-                <%} %>
+                                </tbody>
+                            </table>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 waypoint">
+                            <div class="jumbotron" id="jumbo-test">
+                                <a href="/testquick" class="btn btn-warning btn-lg" id="sort-buttons" role="button">Quick Sort</a>
+                                <table class="table table-bordered">
+                                <thead class = "text-center">
+                                <tr>
+                                    <td colspan="2" class="table-title">Previous Attempts</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th class="text-center">Score</th>
+                                    <th class="text-center">Date Completed</th>
+                                </tr>
+                                <% if (login == null || login == false){ %>
+                                    <td colspan="2" class="text-left"> You need to login first</td>
+                                <% } %>
+                                <% if(typeof scores != "undefined"){ %>
+                                    <% var count = 0 %>
+                                     <% scores.forEach(function(score){ %>
+                                     <% if (score.testID == 3) {%>
+                                        <% count = count + 1 %>
+                                        <tr>
+                                            <td><%=score.score %></td>
+                                            <td class ="text-right"><%= score.timeCompleted %></td>
+                                        </tr>
+                                        <% }%>
+                                        <% }); %>
+                                    <% if(count == 0) { %>
+                                        <td colspan="2" class="text-left"> You have no previous attempts</td>
+                                    <% } %>
+                                <%} %>
                 </tbody>
             </table>
             </div>
