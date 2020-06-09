@@ -27,7 +27,6 @@ function addWaypoint(target, startPos) {
                 opacity: [0, 1],
                 delay: 200,
             })
-
             this.destroy();
       },
         offset: '100%',
