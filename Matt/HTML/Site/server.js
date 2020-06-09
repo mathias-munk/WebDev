@@ -8,8 +8,10 @@ var bodyParser = require('body-parser');
 var questions = [];
 const helmet = require('helmet');
 const https = require('https'), fs = require("fs");
+
 var banned = [];
 var backurl;
+var loginFail = false;
 const dbconfig = require('./Config/initdb');
 banUpperCase("./Public/", "");
 
@@ -172,7 +174,13 @@ app.get('/result/:testid/:score',(req,res)=>{
   });
   
   app.get('/loginredirect', function(req,res){
-        res.render('pages/login',{login: req.session.loggedin, username:req.session.username});
+    var typeOfDirect = false;
+    console.log("inside redirect");
+    if(loginFail ==  true){
+        typeOfDirect = true;
+        loginFail = false;
+      }
+        res.render('pages/login',{login: req.session.loggedin, username:req.session.username, type:typeOfDirect});
   });
 
 app.use('/auth', function(request, response) {
@@ -180,34 +188,40 @@ app.use('/auth', function(request, response) {
     
     var username = request.body.username;
     var password = request.body.password;
-    
-    console.log(username);
-	if (username && password) {
-        db.all("SELECT * FROM user WHERE name = ? AND pw = ? ",[username, password] ,(err,results)=>{
+    console.log("inside authenticate");
+	if (authenticate(username, password) == true){
+        request.session.loggedin = true;
+        request.session.username = username;
+        if(backurl){
+            response.redirect(backurl);
+        }
+        else{
+            response.redirect('/');  
+        }
+    }
+    else{
+        response.redirect('/loginredirect')
+    }
+});
+
+async function authenticate(username, password){
+    if (username && password) {
+        await db.all("SELECT * FROM user WHERE name = ? AND pw = ?",[username, password] ,(err,results)=>{
             if(err){
                 console.error(err.message);
             }
-            console.log(results.length);
-			if (results.length > 0) {
-				request.session.loggedin = true;
-                request.session.username = username;
-                if(backurl){
-                    response.redirect(backurl);
-                }
-                else{
-                    response.redirect('/');  
-                }
-				
-			} else {
-				response.redirect('/loginredirect')
-			}			
-			response.end();
+			if (results.length == 1) {
+                console.log(results[0].name);
+                console.log(results[0].pw);
+                return true;
+            } 
         });
     }
-	 else {
-		response.redirect('/login')
-	}
-});
+    console.log("fell to bottom of authenticate")
+    loginFail = true;
+    return false;
+  }
+
 
 app.post('/register', function(request, response){
     var username = request.body.regusername;
@@ -220,19 +234,18 @@ app.post('/register', function(request, response){
     }
 
     if(username && password){
-        db.all("SELECT * FROM user WHERE name = ? AND pw = ? ",[username, password] ,(err,results)=>{
+        db.all("SELECT * FROM user WHERE name = ?",[username] ,(err,results)=>{
             if(err){
                 console.error(err.message);
             }
             console.log(results.length);
 			if (results.length > 0) {
-				
-				response.render('pages/login',{login: req.session.loggedin, username:req.session.username});
+				response.render('pages/login',{login: request.session.loggedin, username:request.session.username});
 			} else {
                 db.run("INSERT INTO user (name, pw) VALUES(?,?)",[username, password]);
                 request.session.username = username;
                 request.session.loggedin =  true;
-                response.render('pages/learnhome',{login: req.session.loggedin, username:req.session.username});
+                response.render('pages/learnhome',{login: request.session.loggedin, username:request.session.username});
 			}			
 			response.end();
         });
