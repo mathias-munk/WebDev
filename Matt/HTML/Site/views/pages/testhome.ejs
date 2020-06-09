@@ -34,21 +34,23 @@
                         <th class="text-center">Score / 5</th>
                         <th class="text-center">Date Completed</th>
                     </tr>
-                    <tr>
-                        <td class="text-center">user1</td>
-                        <td class="text-center">4</td>
-                        <td class ="text-right">date</td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">user2</td>
-                        <td class="text-center">3</td>
-                        <td class ="text-right">date</td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">user1</td>
-                        <td class="text-center">1</td>
-                        <td class ="text-right">date</td>
-                    </tr>
+                    
+                    <% if(typeof scores != "undefined"){ %>
+                        <% var count = 0 %>
+                         <% scores.forEach(function(score){ %>
+                         <% if (score.testID == 1) {%>
+                            <% count = count + 1 %>
+                            <tr>
+                                <td><%= score.name %></td>
+                                <td><%= score.score %></td>  
+                                <td class ="text-right"><%= score.timeCompleted %></td>
+                            </tr>
+                            <% }%>
+                            <% }); %>
+                        <% if(count == 0) { %>
+                            <td colspan="3" class="text-left"> You have no previous attempts</td>  
+                        <% } %>
+                    <%} %>
                 </tbody>
             </table>
             </div>
@@ -70,21 +72,22 @@
                         <th class="text-center">Score / 5</th>
                         <th class="text-center">Date Completed</th>
                     </tr>
-                    <tr>
-                        <td class="text-center">user1</td>
-                        <td class="text-center">4</td>
-                        <td class ="text-right">date</td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">user2</td>
-                        <td class="text-center">3</td>
-                        <td class ="text-right">date</td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">user1</td>
-                        <td class="text-center">1</td>
-                        <td class ="text-right">date</td>
-                    </tr>
+                    <% if(typeof scores != "undefined"){ %>
+                        <% var count = 0 %>
+                         <% scores.forEach(function(score){ %>
+                         <% if (score.testID == 2) {%>
+                            <% count = count + 1 %>
+                            <tr>
+                                <td><%= score.name %></td>
+                                <td><%= score.score %></td>  
+                                <td class ="text-right"><%= score.timeCompleted %></td>
+                            </tr>
+                            <% }%>
+                            <% }); %>
+                        <% if(count == 0) { %>
+                            <td colspan="3" class="text-left"> You have no previous attempts</td>  
+                        <% } %>
+                    <%} %>
                 </tbody>
             </table>
             </div>
@@ -106,21 +109,23 @@
                         <th class="text-center">Score / 5</th>
                         <th class="text-center">Date Completed</th>
                     </tr>
-                    <tr>
-                        <td class="text-center">user1</td>
-                        <td class="text-center">4</td>
-                        <td class ="text-right">date</td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">user2</td>
-                        <td class="text-center">3</td>
-                        <td class ="text-right">date</td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">user1</td>
-                        <td class="text-center">1</td>
-                        <td class ="text-right">date</td>
-                    </tr>
+
+                    <% if(typeof scores != "undefined"){ %>
+                        <% var count = 0 %>
+                         <% scores.forEach(function(score){ %>
+                         <% if (score.testID == 3) {%>
+                            <% count = count + 1 %>
+                            <tr>
+                                <td><%= score.name %></td>
+                                <td><%= score.score %></td>  
+                                <td class ="text-right"><%= score.timeCompleted %></td>
+                            </tr>
+                            <% }%>
+                            <% }); %>
+                        <% if(count == 0) { %>
+                            <td colspan="3" class="text-left"> There are no previous attempts</td>  
+                        <% } %>
+                    <%} %>
                 </tbody>
             </table>
             </div>

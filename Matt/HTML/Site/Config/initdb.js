@@ -12,10 +12,10 @@ async function initThis(){
         
             db.run("DROP TABLE IF EXISTS user");
             console.log("why");
-            db.run("CREATE TABLE user ( name TEXT PRIMARY KEY, pw TEXT NOT NULL, email TEXT NOT NULL)");
+            db.run("CREATE TABLE user (id INTEGER PRIMARY KEY autoincrement, name TEXT UNIQUE, pw TEXT NOT NULL, firstname TEXT NOT NULL, surname TEXT NOT NULL, email TEXT NOT NULL)");
             console.log("why 2");
-            var stmt = db.prepare("INSERT INTO user(name, pw, email) VALUES(?,?,?)");
-            stmt.run("tias", "m", "mathias.munk@javascript.com");
+            var stmt = db.prepare("INSERT INTO user(name, pw, email, firstname, surname) VALUES(?,?,?,?,?)");
+            stmt.run("tias", "m", "mathias.munk@javascript.com", "Mathias", "Munk");
             stmt.finalize();
             db.each("SELECT name, pw FROM user", function(err, row){
                 if(err){
@@ -29,9 +29,9 @@ async function initThis(){
             db.run("DROP TABLE IF EXISTS test");
             db.run("DROP TABLE IF EXISTS questions");
             db.run("DROP TABLE IF EXISTS attempt");
-            db.run("CREATE TABLE test(ID INTEGER PRIMARY KEY autoincrement, setby INT NOT NULL, FOREIGN KEY(setby) REFERENCES user(id))")
+            db.run("CREATE TABLE test(id INTEGER PRIMARY KEY autoincrement, setby INT NOT NULL, FOREIGN KEY(setby) REFERENCES user(id))")
              db.run("CREATE TABLE questions (id INTEGER PRIMARY KEY autoincrement, question TEXT, answer1 TEXT, answer2 TEXT, answer3 TEXT, correct TEXT, test INT)");
-             db.run("CREATE TABLE attempt (id INTEGER PRIMARY KEY autoincrement, userID TEXT, testID INTEGER NOT NULL, score INTEGER NOT NULL, timeCompleted DATETIME, FOREIGN KEY(userID) REFERENCES user(name), FOREIGN KEY (testID) REFERENCES test(ID))");
+             db.run("CREATE TABLE attempt (id INTEGER PRIMARY KEY autoincrement, userID INTEGER NOT NULL, testID INTEGER NOT NULL, score INTEGER NOT NULL, timeCompleted DATETIME, FOREIGN KEY(userID) REFERENCES user(name), FOREIGN KEY (testID) REFERENCES test(ID))");
             
             var stmt = db.prepare("INSERT INTO test (setby) VALUES(?)");
             stmt.run(1);
@@ -49,14 +49,14 @@ async function initThis(){
             stmt.run("What storage type initially made use of merge sort?", "Hard Disk", "Solid State Drive", "Magnetic tape","c", 2);
             stmt.run("What type of sort is a merge sort?", "Erratic", "Unstable", "Stable","c", 2);
             stmt.run("What is the complexity of a merge sort?", "O(n)", "O(n^2)", "O(nlog(n))", "b", 3);
-            stmt.run("Who invented the quick sort", "John Van Neumann", "Tony Hoare", "John Van Pooman","b", 3);
-            stmt.run("What is the name of the crucial part of the quick sort", "pivot", "twist", "comparison","a", 3);
+            stmt.run("Who invented the quick sort?", "John Van Neumann", "Tony Hoare", "John Van Pooman","b", 3);
+            stmt.run("What is the name of the crucial part of the quick sort?", "pivot", "twist", "comparison","a", 3);
             stmt.run("What type of algorithm is a quick sort?", "Divide and Conquer", "Invade and Pillage", "Efficient","a", 3);
             stmt.run("What type of sort is a quick sort?", "Comparison", "Unstable", "Stable","a", 3);
 
             stmt.finalize();
             var stmt = db.prepare("INSERT INTO attempt (userID, testID, score, timeCompleted) VALUES(?,?,?, ?)");
-            stmt.run("tias",1,1, TIMESTAMP);
+            stmt.run(1,1,1, TIMESTAMP);
             stmt.finalize;
             console.log("hi");
             db.each("SELECT id, question, answer1, test FROM questions", (err,row)=>{

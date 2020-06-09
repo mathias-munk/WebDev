@@ -85,11 +85,11 @@ https.createServer({
 
   app.get('/testhome', async(req, res) =>{
       
-      db.all("SELECT * FROM attempt WHERE userID = ? ",[req.session.username] ,(err,results)=>{
+      db.all("SELECT * FROM attempt JOIN user ON attempt.userID = user.id ORDER BY attempt.score DESC ", (err,results)=>{
         if(err){
             console.error(err.message);
         }
-       
+        console.log(results);
         res.render('pages/testhome', {login: req.session.loggedin,username:req.session.username,scores: results});
         res.end();
     });
@@ -109,13 +109,13 @@ https.createServer({
 app.get('/result/:testid/:score',(req,res)=>{
     var date = new Date();
     var TIMESTAMP = date.toISOString();
-        const userId = req.params.userid;
+        const userId = req.session.id;
         const testid = req.params.testid;
         const score = req.params.score;
         console.log(userId +" "+ testid + " " + score);
         db.serialize(function(){
             var stmt = db.prepare("INSERT INTO attempt (userId, testId, score, timeCompleted) VALUES(?,?,?, ?)");
-            stmt.run(req.session.username, testid, score, TIMESTAMP);
+            stmt.run(req.session.id, testid, score, TIMESTAMP);
             db.each("SELECT userID, testID, score FROM attempt", (err,row)=>{
                 if(err){
                     console.error(err.message);
@@ -161,6 +161,7 @@ app.get('/result/:testid/:score',(req,res)=>{
     }
   });
 
+
   app.get('/data/:testID', function(req,res){
     getQuestions(req.params.testID);
     setTimeout(function(){
@@ -186,7 +187,13 @@ app.get('/result/:testid/:score',(req,res)=>{
   
   app.get('/account', function(req,res){
       if(req.session.loggedin){
-          res.render('pages/account', {login: req.session.loggedin, username:req.session.username});
+        db.all("SELECT * FROM attempt JOIN user ON attempt.userID = user.id WHERE userID = ?",[req.session.userid], (err,results) =>{
+            if(err){
+                console.error(err.message);
+            }
+          
+          res.render('pages/account', {login: req.session.loggedin, username:req.session.username, scores: results});
+        });
       }
       else{
           backurl = req.header('Referer') || '/';
@@ -212,6 +219,7 @@ app.post('/auth', function(request, response) {
 			if (results.length > 0) {
 				request.session.loggedin = true;
                 request.session.username = username;
+                request.session.userid = results[0].id;
                 if(backurl){
                     response.redirect(backurl);
                 }
@@ -239,7 +247,7 @@ app.get('/account', function(req, res){
                 console.error(err.message);
             }
            
-            res.render('pages/account', {login: req.session.loggedin,username:req.session.username,scores: results});
+            res.render('pages/account', {login: req.session.loggedin,username:req.session.username,scores: results, email: results.email});
             res.end();
         });
     }
@@ -274,6 +282,7 @@ app.post('/register', function(request, response){
                 db.run("INSERT INTO user (name, pw,email) VALUES(?,?,?)",[username, password, email]);
                 request.session.username = username;
                 request.session.loggedin =  true;
+                request.session.id = db.run("SELECT id FROM user WHERE name = ?", [username]);
                 response.render('pages/learnhome',{login: request.session.loggedin, username:request.session.username});
 			}			
 			response.end();
