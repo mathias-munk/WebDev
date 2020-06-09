@@ -15,8 +15,10 @@
     </div>
     <div class = "form-container">
         <div class="row">
-            <h4> You must have an account to use this feature,
-            <a href="/signup" class="page-text-link">Sign Up</a> or login below.</h4>
+             
+        <h4> <% if(type == false) {%> You must have an account to use this feature,<%}else{ %>Login failed, please try again.<%}%>
+            <a href="/signup" class="page-text-link">you can Sign Up</a> or Login below.</h4>
+                
         </div>
         <form method = "POST" action = "auth" id ="navloginform" name = "loginform">
             
